@@ -1,15 +1,46 @@
 # Agentic Search
 
-LLM-powered contract analysis and search using OpenRouter API.
+LLM-powered contract analysis with **autonomous agent system** using OpenRouter API.
 
 ## Features
 
+- **Agentic Loop**: Think → Act → Observe → Complete workflow for autonomous task execution
+- **Tool Calling**: XML-based tool execution integrated with LLM decision making
+- **Contract Analysis**: Autonomous analysis of 398+ contract files with multi-step reasoning
+- **Text Extraction**: Precise text span extraction for lawyer highlighting with character positions
+- **Multi-Agent Capability**: Sequential tool execution with context management
 - **OpenRouter Integration**: Uses OpenRouter's API for access to multiple LLM models
 - **OpenAI SDK Compatible**: Built using the OpenAI SDK for easy integration
-- **Contract Analysis**: Specialized functionality for analyzing legal contracts
 - **Async Support**: Full async/await support for non-blocking operations
 - **Streaming**: Real-time streaming responses for better user experience
 - **Comprehensive Testing**: Full test suite with mocks and integration tests
+
+## Autonomous Agent System
+
+### Working Components
+- `simple_agent.py` - Main agent with agentic loop and tool calling system
+- `precise_extraction_agent.py` - Specialized text extraction for QA matching
+- `test_simple_agent.py` - Comprehensive test suite for agent functionality
+- `test_sample_qa.py` - QA validation tests with sample contracts
+
+### Proven Capabilities
+- **Autonomous Contract Analysis**: Reads contracts and generates detailed summaries automatically
+- **QA Text Extraction**: Successfully finds ALL expected text spans from structured QA datasets
+- **Tool Integration**: ReadFile, WriteFile, PowerShell, and TextSearch tools working seamlessly
+- **Position-Accurate Results**: Provides exact character positions for lawyer document highlighting
+- **Multi-Step Reasoning**: Handles complex tasks requiring multiple tool calls and decision points
+
+### Quick Test
+```bash
+# Test the agentic loop with contract analysis
+uv run python simple_agent.py
+
+# Test precise text extraction
+uv run python precise_extraction_agent.py
+
+# Test QA comparison
+uv run python test_sample_qa.py
+```
 
 ## Installation
 
