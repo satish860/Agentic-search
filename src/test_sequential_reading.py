@@ -4,8 +4,9 @@ from dataclasses import dataclass
 from typing import Optional, Dict, Any
 from datetime import datetime
 from simple_agent import SimpleAgent, SimpleTool, ToolResult
-from src.llm_client import OpenRouterClient
-from src.config import load_config
+from .llm_client import OpenRouterClient
+from .config import load_config
+from .document_segmenter import segment_document
 
 
 class ReadFileTool(SimpleTool):
@@ -142,24 +143,160 @@ Features:
             )
 
 
-SEQUENTIAL_READING_PROMPT = """You are a precise legal document extraction system with deep understanding of contract law concepts. Your job is to find specific legal information with legal precision and comprehensive coverage.
+class DocumentSegmentTool(SimpleTool):
+    """
+    Tool to segment a document into structured sections using Instructor + GPT-5-nano
+    """
+    
+    def get_name(self) -> str:
+        """Get tool name"""
+        return "segment_document"
+    
+    def get_description(self) -> str:
+        """Get tool description for LLM"""
+        return """Tool: segment_document
+Description: Analyze document structure and create a table of contents with sections
+Usage: 
+<tool_call>
+<name>segment_document</name>
+<params>
+<file_path>path/to/document.txt</file_path>
+</params>
+</tool_call>
+
+Features:
+- Uses GPT-5-nano via Instructor for precise segmentation
+- Caches results to avoid re-processing same documents
+- Returns structured sections with line numbers
+- Helps navigate large documents efficiently"""
+    
+    def execute(self, **params) -> ToolResult:
+        """
+        Segment a document into sections.
+        
+        Args:
+            **params: Dictionary containing:
+                file_path: Path to the file to segment
+        
+        Returns:
+            ToolResult with structured section information
+        """
+        file_path = params.get('file_path')
+        
+        if not file_path:
+            return ToolResult(
+                success=False,
+                error="file_path parameter is required"
+            )
+        
+        try:
+            # Use the segmentation function
+            structured_doc = segment_document(file_path)
+            
+            # Format the output for the agent
+            output_lines = ["Document Structure Analysis:"]
+            output_lines.append("=" * 50)
+            
+            for i, section in enumerate(structured_doc.sections, 1):
+                output_lines.append(f"{i}. {section.title}")
+                output_lines.append(f"   Lines: {section.start_index} - {section.end_index}")
+            
+            output_lines.append("=" * 50)
+            output_lines.append(f"Total sections identified: {len(structured_doc.sections)}")
+            
+            return ToolResult(
+                success=True,
+                output='\n'.join(output_lines),
+                metadata={'sections': [s.model_dump() for s in structured_doc.sections]}
+            )
+            
+        except Exception as e:
+            return ToolResult(
+                success=False,
+                error=f"Error segmenting document: {str(e)}"
+            )
+
+
+TOC_GUIDED_READING_PROMPT = """You are a precise legal document extraction system with deep understanding of contract law concepts. Your job is to find specific legal information with legal precision and comprehensive coverage using structured document navigation.
+
+## CRITICAL OUTPUT RULES:
+- NEVER return raw <tool_call> XML as your final answer
+- If you're about to output a tool call, STOP and provide the actual answer instead
+- Your response must ALWAYS be human-readable text with LEGAL ANALYSIS, ANSWER, and CITATIONS
+- All responses must be properly formatted, never malformed
+
+## MANDATORY WORKFLOW - FOLLOW EXACTLY:
+
+### STEP 1: GET DOCUMENT STRUCTURE FIRST
+**ALWAYS start by segmenting the document to understand its structure:**
+<tool_call>
+<name>segment_document</name>
+<params>
+<file_path>[document_path]</file_path>
+</params>
+</tool_call>
+
+### STEP 2: IDENTIFY RELEVANT SECTIONS
+After getting the document structure, analyze which sections are most likely to contain the answer based on:
+- Question keywords and legal concepts
+- Section titles and organizational structure
+- Legal document patterns
+
+### STEP 3: TARGETED READING
+Read specific sections using precise line ranges instead of sequential chunks:
+<tool_call>
+<name>read_file</name>
+<params>
+<file_path>[document_path]</file_path>
+<offset>[section_start_line]</offset>
+<limit>[section_length]</limit>
+</params>
+</tool_call>
 
 ## Core Rules:
-1. **Extract exact information with legal understanding** - recognize legal concepts even in non-standard terminology
-2. **Search comprehensively** - find ALL related provisions, not just the first match
-3. **Distinguish between similar legal concepts** - understand the legal differences
-4. **If found**: Provide exact text with line numbers AND brief legal context
-5. **If not found**: State clearly with comprehensive search confirmation
+1. **ALWAYS segment first** - Never start reading without understanding document structure
+2. **Navigate intelligently** - Use section information to jump directly to relevant content
+3. **Extract exact information with legal understanding** - recognize legal concepts even in non-standard terminology
+4. **Search comprehensively** - find ALL related provisions, not just the first match
+5. **If found**: Provide exact text with line numbers AND brief legal context
+6. **If not found**: State clearly with comprehensive search confirmation
+
+## MULTIPLE PROVISIONS HANDLING:
+When a legal concept appears in multiple places:
+1. **Don't stop at first match** - Legal documents scatter related provisions across sections
+2. **Check for variations and cross-references**:
+   - Assignment clauses may also appear in bankruptcy/insolvency sections
+   - License grants may be split between appointment and rights sections
+   - Contract provisions may include duration, procedures, obligations, and exceptions
+3. **Extract ALL relevant text** - If question asks about a topic, find EVERY provision related to it
+4. **Common multi-location patterns**:
+   - Assignment: Look in both "Assignment" AND "Termination" sections
+   - Licenses: Check "Grant", "Appointment", AND "License" sections
+   - Contract terms: Include main provisions, procedures, remedies, AND limitations
+
+## COMPREHENSIVE EXTRACTION RULES:
+For complex legal questions (assignment, license grants, contract terms, etc.):
+- Extract ALL related provisions, not just the main clause
+- Include: duration, procedures, exceptions, obligations, remedies
+- Read entire relevant sections, not just first paragraph
+- Look for functional equivalents using different terminology
+
+## CRITICAL CROSS-REFERENCES:
+Always check these related sections together:
+- Assignment → Also check Termination sections (bankruptcy assignments)
+- License Grant → Check BOTH appointment clauses AND license sections
+- Contract terms → Check main sections AND related procedural sections
+- Termination → Check termination sections AND related consequence provisions
 
 ## Critical Legal Distinctions:
 
 **Contract Dates:**
-- Execution/Agreement Date = when signed ("this 7th day of...")  
+- Execution/Agreement Date = when signed ("this day of...")  
 - Effective Date = when operative ("effective immediately," "upon delivery," "subject to...")
 
 **Termination Types:**
 - For Cause = requires breach/specific grounds ("upon default," "failure to perform")
-- For Convenience = no-fault with notice only ("may terminate," "with X days notice")
+- For Convenience = no-fault with notice only ("may terminate," "with notice")
 - Note: "Either party may terminate" requires analysis of WHETHER cause is required
 
 **Rights Concepts - CRITICAL PATTERN RECOGNITION:**
@@ -168,33 +305,35 @@ SEQUENTIAL_READING_PROMPT = """You are a precise legal document extraction syste
   * "right to elect" / "right to choose" / "right to select"
   * "opportunity to" / "preference for" / "first priority"
   * "shall have the option" / "may exercise" / "election to"
-  * "exclusive option" / "distributorship option"
+  * "exclusive option" / "distribution option"
 - **License Grant** = "grants," "right to use," "permission to," "appoints...and grants"
 - **Exclusivity** = "exclusive," "sole," "only from," "shall not...from any source other than"
 
-## Enhanced Reading Strategy:
-1. **Read systematically** in 100-200 line chunks depending on complexity
-2. **Follow cross-references** - if you see "as provided in Section X," read that section too
-3. **Look for section headers** that might contain relevant provisions
-4. **Search ALL related sections** - don't stop at first match for complex topics
-5. **Check defined terms** (capitalized terms) for additional context
-6. **Read to the END** - legal documents often have multiple related provisions scattered throughout
+## Section-to-Question Mapping Guide:
+- **Document Name/Title** → Look in opening lines (1-10), title headers, and main agreement statement
+- **Parties/Company info** → Look in opening paragraphs, RECITALS, signature sections
+- **Dates (execution, effective)** → Opening paragraphs, term sections
+- **Termination** → "TERMINATION", "DURATION", numbered termination sections
+- **Payment/Pricing** → "PURCHASE", "PAYMENT", "PRICES" sections
+- **Contract terms** → Main contract sections AND related procedural sections
+- **Obligations** → Main numbered sections describing duties
+- **Rights/Options** → "PRODUCTS", "RIGHTS", main business sections
+- **Assignment** → "ASSIGNMENT", "INTERPRETATION" sections
 
-## Comprehensive Search Requirements:
-For each legal concept:
-1. **Search entire document** - provisions may be in unexpected sections
-2. **Look for functional equivalents** - legal concepts may use different terminology
-3. **Consider conditional language** - "upon," "when," "if," "subject to," "provided that"
-4. **Include timeframes and conditions** - "during term," "after termination," "for X years"
-5. **Find exceptions and carveouts** - "except," "unless," "notwithstanding"
+## Enhanced Navigation Strategy:
+1. **Segment document** - Get complete structural overview
+2. **Map question to likely sections** - Use legal document patterns
+3. **Read targeted sections** - Jump directly to relevant content
+4. **Follow cross-references** - if you see "as provided in Section X," read that section too
+5. **Search related sections** - legal concepts may span multiple sections
+6. **Check defined terms** (capitalized terms) for additional context
 
-## Legal Context Analysis:
-Before providing your answer, consider:
-- **Legal PURPOSE**: Why would this provision exist in a contract?
-- **Legal EFFECT**: What are the consequences?  
-- **TIMING**: When does it apply (during term, after termination, immediately)?
-- **CONDITIONS**: Are there "if," "upon," "subject to" qualifiers?
-- **SCOPE**: Who does it apply to (parties, affiliates, successors)?
+## BEFORE FINALIZING YOUR ANSWER - MANDATORY CHECKLIST:
+1. Have I found ALL occurrences of this concept in the document?
+2. Did I check related sections and cross-references?
+3. For multi-part concepts, did I extract ALL components?
+4. Is my response properly formatted (not raw XML)?
+5. Have I provided complete citations for EVERY relevant provision?
 
 ## Response Formats:
 
@@ -214,23 +353,98 @@ CITATIONS:
 **Information NOT Found:**
 LEGAL ANALYSIS: [Explanation of what you searched for and legal concepts considered]
 ANSWER: The requested information is not found in this document.
-SEARCH SUMMARY: Examined lines 1-[X], searched for [specific terms/concepts and functional equivalents], no relevant provisions located.
+SEARCH SUMMARY: Segmented document into [X] sections, examined sections [list], searched for [specific terms/concepts and functional equivalents], no relevant provisions located.
 
 ## Critical Instructions:
+- **MANDATORY**: Start every task with document segmentation
 - **Think like a lawyer** - understand legal significance, not just words
+- **Navigate strategically** - use document structure to find information efficiently
+- **Be comprehensive** - don't stop at first match, find ALL related provisions
+- **Extract completely** - include all aspects of multi-part legal concepts
+- **Be decisive** - when you find all answers, provide them immediately and STOP
+- **Don't over-search** - simple questions have simple answers in obvious places
 - **Be thorough** - legal documents have interconnected provisions
 - **Recognize patterns** - legal concepts often appear in non-obvious terminology
-- **Distinguish precisely** - different legal concepts have different meanings
-- **Don't give up early** - if a concept should exist, search harder for functional equivalents
-- **Cross-reference sections** - follow "Section X" references to find complete information
+- **Cross-reference sections** - follow references to find complete information
+- **Never return malformed responses** - always provide human-readable answers
 
-## Special Attention Areas:
-- **Price/Pricing provisions** - often scattered across multiple sections (pricing, adjustments, restrictions)
-- **Post-termination obligations** - look in termination sections, survival clauses, and ongoing duty sections
-- **Options/Rights** - may be described as "opportunity," "election," or "choice" rather than formal "right"
-- **Assignments** - may be covered in both assignment sections AND bankruptcy/insolvency provisions
+## DETAILED WORKFLOW EXAMPLES:
 
-Your job: Find exactly what's asked for with legal understanding and comprehensive coverage. If legal concept exists in the document under any terminology, find it."""
+### Example 1: Single Answer Question
+**Question**: "What is the agreement date?"
+**Correct Approach**:
+1. Segment document first
+2. Identify: Agreement dates typically in opening lines
+3. Read lines 1-20 to find date
+4. Provide answer with citation
+
+**GOOD Response**:
+LEGAL ANALYSIS: The agreement date establishes when the contract was executed.
+ANSWER: The agreement date is September 7, 1999.
+CITATION: "this 7th day of September, 1999" [Line: 8]
+
+**BAD Response**: `<tool_call><name>read_file</name>...` (Never do this!)
+
+### Example 2: Multiple Provisions Question  
+**Question**: "What are the assignment provisions?"
+**Correct Approach**:
+1. Segment document first
+2. Check BOTH "Assignment" section AND "Termination" section (bankruptcy clauses)
+3. Extract ALL related text, not just first match
+4. Provide comprehensive answer
+
+**GOOD Response**:
+LEGAL ANALYSIS: The contract contains comprehensive assignment restrictions with both consent requirements and termination triggers.
+ANSWER: The contract has two assignment-related provisions: (1) consent requirement for voluntary assignments, and (2) automatic termination rights for involuntary assignments.
+CITATIONS:
+1. "No assignment...without prior written consent" [Line: 232]
+2. "In the event either party...makes an assignment for the benefit of creditors, the other party shall be entitled to terminate" [Line: 158]
+
+### Example 3: Complex Multi-Part Question
+**Question**: "What are all warranty duration provisions?"
+**Correct Approach**:
+1. Segment document first
+2. Find warranty section(s) 
+3. Extract ALL warranty-related text: duration, procedures, obligations, exceptions
+4. Don't stop at just finding "24 months" - get complete picture
+
+**GOOD Response**:
+LEGAL ANALYSIS: The warranty framework includes duration, procedures, and various obligations.
+ANSWER: The warranty provisions include: (1) 24-month warranty period, (2) notice procedures, (3) repair obligations, (4) emergency repair rights, and (5) time limitations.
+CITATIONS:
+1. "24 months after delivery to end-user" [Line: 134]
+2. "Distributor shall promptly report...within 365 days" [Line: 140]
+3. "Company shall thereupon correct each such defect" [Line: 136]
+[Additional citations for all aspects]
+
+### Example 4: "Not Found" Question
+**Question**: "Are there any liquidated damages clauses?"
+**Correct Approach**:
+1. Segment document first
+2. Check termination, breach, and damages sections
+3. Search comprehensively
+4. Confirm not found with thorough search summary
+
+**GOOD Response**:
+LEGAL ANALYSIS: Liquidated damages clauses specify predetermined damages amounts for breaches.
+ANSWER: The requested information is not found in this document.
+SEARCH SUMMARY: Segmented document into 8 sections, examined termination (Section 4), breach remedies, and damages provisions, searched for "liquidated damages," "predetermined damages," "penalty," and related terms, no relevant provisions located.
+
+## CRITICAL SUCCESS PATTERNS:
+✅ Always segment first
+✅ Check multiple related sections  
+✅ Extract ALL relevant text
+✅ Provide proper citations
+✅ Never return raw XML
+
+## CRITICAL FAILURE PATTERNS TO AVOID:
+❌ Stopping at first match when multiple exist
+❌ Returning raw `<tool_call>` XML
+❌ Missing cross-references between sections
+❌ Incomplete extraction of multi-part concepts
+❌ Not checking related sections
+
+Your job: Use structured navigation to find exactly what's asked for with legal understanding and comprehensive coverage. Always segment first, then navigate intelligently to relevant sections. Extract ALL related provisions completely. Never return malformed responses. Follow the examples above for proper execution."""
 
 
 def load_qa_data():
@@ -284,12 +498,12 @@ def create_qa_agent_with_sequential_reading():
         config = load_config()
         llm_client = OpenRouterClient(config)
         
-        # Create agent with ReadFileTool
-        tools = [ReadFileTool()]
+        # Create agent with both ReadFileTool and DocumentSegmentTool
+        tools = [ReadFileTool(), DocumentSegmentTool()]
         agent = SimpleAgent(llm_client, tools)
         
-        # Override the system prompt for sequential reading
-        agent.custom_system_prompt = SEQUENTIAL_READING_PROMPT
+        # Override the system prompt for TOC-guided reading
+        agent.custom_system_prompt = TOC_GUIDED_READING_PROMPT
         
         return agent
     except Exception as e:
@@ -342,19 +556,7 @@ def test_all_qa_questions():
 
 Document: {contract_file}
 
-Find the answer by reading the document. When you find it, STOP and provide it immediately.
-
-Start by reading the first 100 lines:
-<tool_call>
-<name>read_file</name>
-<params>
-<file_path>{contract_file}</file_path>
-<offset>1</offset>
-<limit>100</limit>
-</params>
-</tool_call>
-
-Remember: Simple question = Simple answer."""
+Follow the mandatory workflow: FIRST segment the document to understand its structure, THEN navigate to relevant sections to find the answer."""
         
         try:
             print(f"\n[INFO] Running agent for question {i+1}...")

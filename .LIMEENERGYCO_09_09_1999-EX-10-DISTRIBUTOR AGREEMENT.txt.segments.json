@@ -1,0 +1,45 @@
+{
+  "file_hash": "03093e798811a404f6218dc9950e4dd0",
+  "sections": [
+    {
+      "title": "RECITALS",
+      "start_index": 9,
+      "end_index": 18
+    },
+    {
+      "title": "1. ESTABLISHMENT OF DISTRIBUTORSHIP",
+      "start_index": 19,
+      "end_index": 75
+    },
+    {
+      "title": "2. PURCHASE OF PRODUCTS",
+      "start_index": 79,
+      "end_index": 122
+    },
+    {
+      "title": "3. PRODUCTS AND WARRANTY",
+      "start_index": 123,
+      "end_index": 152
+    },
+    {
+      "title": "4. DURATION AND TERMINATION",
+      "start_index": 153,
+      "end_index": 176
+    },
+    {
+      "title": "5. REPRESENTATIONS AND WARRANTIES AND OTHER MATTERS",
+      "start_index": 177,
+      "end_index": 228
+    },
+    {
+      "title": "6. INTERPRETATION AND ENFORCEMENT",
+      "start_index": 229,
+      "end_index": 266
+    },
+    {
+      "title": "7. NEW PRODUCTS",
+      "start_index": 267,
+      "end_index": 275
+    }
+  ]
+}
