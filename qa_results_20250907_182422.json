@@ -1,0 +1,573 @@
+{
+  "metadata": {
+    "timestamp": "2025-09-07T18:24:22.496526",
+    "total_questions": 41,
+    "model_used": "moonshotai/kimi-k2-0905",
+    "contract_file": "Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt"
+  },
+  "results": [
+    {
+      "question_num": 1,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Document Name",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Document Name\" that should be reviewed by a lawyer. Details: The name of the contract",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Document Name\" that should be reviewed by ...",
+      "expected_answers": [
+        "DISTRIBUTOR AGREEMENT"
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "I found the document name in the first few lines. Let me extract the exact information requested.\n\nANSWER: DISTRIBUTOR AGREEMENT\nCITATION: \"DISTRIBUTOR AGREEMENT\" [Line: 6]",
+      "agent_response_short": "I found the document name in the first few lines. Let me extract the exact information requested.\n\nANSWER: DISTRIBUTOR AGREEMENT\nCITATION: \"DISTRIBUTOR AGREEMENT\" [Line: 6]",
+      "timestamp": "2025-09-07T18:20:19.701888"
+    },
+    {
+      "question_num": 2,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Parties",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Parties\" that should be reviewed by a lawyer. Details: The two or more parties who signed the contract",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Parties\" that should be reviewed by a lawy...",
+      "expected_answers": [
+        "Distributor",
+        "Electric City Corp.",
+        "Electric City of Illinois L.L.C.",
+        "Company",
+        "Electric City of Illinois LLC"
+      ],
+      "expected_count": 5,
+      "is_impossible": false,
+      "agent_response_full": "I found the parties information in the first 100 lines. Let me extract the exact text about the parties.\n\nANSWER: Electric City Corp., a Delaware corporation (\"Company\") and Electric City of Illinois LLC (\"Distributor\")\nCITATION: \"THIS DISTRIBUTOR AGREEMENT (the \"Agreement\") is made by and between Electric City Corp., a Delaware corporation (\"Company\") and Electric City of Illinois LLC (\"Distributor\") this 7th day of September, 1999.\" [Line: 8]",
+      "agent_response_short": "I found the parties information in the first 100 lines. Let me extract the exact text about the parties.\n\nANSWER: Electric City Corp., a Delaware corporation (\"Company\") and Electric City of Illinois ...",
+      "timestamp": "2025-09-07T18:20:23.386784"
+    },
+    {
+      "question_num": 3,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Agreement Date",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Agreement Date\" that should be reviewed by a lawyer. Details: The date of the contract",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Agreement Date\" that should be reviewed by...",
+      "expected_answers": [
+        "7th day of September, 1999."
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "I found the Agreement Date in the first 100 lines. Let me extract the exact information.\n\n**Information Found:**\nANSWER: this 7th day of September, 1999\nCITATION: \"THIS  DISTRIBUTOR  AGREEMENT (the  \"Agreement\")  is made by and between Electric City Corp.,  a Delaware  corporation  (\"Company\")  and Electric City of Illinois LLC (\"Distributor\") this 7th day of September, 1999.\" [Line: 8]",
+      "agent_response_short": "I found the Agreement Date in the first 100 lines. Let me extract the exact information.\n\n**Information Found:**\nANSWER: this 7th day of September, 1999\nCITATION: \"THIS  DISTRIBUTOR  AGREEMENT (the  \"...",
+      "timestamp": "2025-09-07T18:20:27.021094"
+    },
+    {
+      "question_num": 4,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Effective Date",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Effective Date\" that should be reviewed by a lawyer. Details: The date when the contract is effective ",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Effective Date\" that should be reviewed by...",
+      "expected_answers": [
+        "The term of this  Agreement  shall be ten (10)                            years (the \"Term\")  which shall  commence on the date                            upon which the Company  delivers to  Distributor  the                            last Sample, as defined  hereinafter.",
+        "Unless  earlier   terminated   otherwise  provided                   therein,  this  Agreement,  subject to the  commencement  date                   established  in Section 1.3,  shall be effective  immediately."
+      ],
+      "expected_count": 2,
+      "is_impossible": false,
+      "agent_response_full": "I found the relevant information about the Effective Date in the document.\n\nANSWER: The term of this Agreement shall be ten (10) years which shall commence on the date upon which the Company delivers to Distributor the last Sample, as defined hereinafter.\n\nCITATION: \"The term of this Agreement shall be ten (10) years (the \"Term\") which shall commence on the date upon which the Company delivers to Distributor the last Sample, as defined hereinafter.\" [Line: 30]",
+      "agent_response_short": "I found the relevant information about the Effective Date in the document.\n\nANSWER: The term of this Agreement shall be ten (10) years which shall commence on the date upon which the Company delivers ...",
+      "timestamp": "2025-09-07T18:20:37.775118"
+    },
+    {
+      "question_num": 5,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Expiration Date",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Expiration Date\" that should be reviewed by a lawyer. Details: On what date will the contract's initial term expire?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Expiration Date\" that should be reviewed b...",
+      "expected_answers": [
+        "The term of this  Agreement  shall be ten (10)                            years (the \"Term\")  which shall  commence on the date                            upon which the Company  delivers to  Distributor  the                            last Sample, as defined  hereinafter."
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "I have found the information about the contract's initial term expiration. Let me extract the specific details:\n\n**Information Found:**\n\nANSWER: The initial term of the agreement is ten (10) years, which commences on the date upon which the Company delivers to Distributor the last Sample.\n\nCITATION: \"The term of this Agreement shall be ten (10) years (the \"Term\") which shall commence on the date upon which the Company delivers to Distributor the last Sample, as defined hereinafter.\" [Line: 30]\n\nThe contract does not specify an exact calendar date for expiration, but rather states the term is 10 years from when the last sample is delivered to the distributor.",
+      "agent_response_short": "I have found the information about the contract's initial term expiration. Let me extract the specific details:\n\n**Information Found:**\n\nANSWER: The initial term of the agreement is ten (10) years, wh...",
+      "timestamp": "2025-09-07T18:20:41.894246"
+    },
+    {
+      "question_num": 6,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Renewal Term",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Renewal Term\" that should be reviewed by a lawyer. Details: What is the renewal term after the initial term expires? This includes automatic extensions and unilateral extensions with prior notice.",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Renewal Term\" that should be reviewed by a...",
+      "expected_answers": [
+        "If Distributor                            complies with all of the terms of this Agreement, the                            Agreement  shall be  renewable on an annual basis for                            one (1) year terms for up to  another  ten (10) years                            on the same terms and conditions as set forth herein."
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: The Agreement shall be renewable on an annual basis for one (1) year terms for up to another ten (10) years on the same terms and conditions as set forth herein.\nCITATION: \"If Distributor complies with all of the terms of this Agreement, the Agreement shall be renewable on an annual basis for one (1) year terms for up to another ten (10) years on the same terms and conditions as set forth herein.\" [Line: 30]",
+      "agent_response_short": "ANSWER: The Agreement shall be renewable on an annual basis for one (1) year terms for up to another ten (10) years on the same terms and conditions as set forth herein.\nCITATION: \"If Distributor comp...",
+      "timestamp": "2025-09-07T18:20:53.441717"
+    },
+    {
+      "question_num": 7,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Notice Period To Terminate Renewal",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Notice Period To Terminate Renewal\" that should be reviewed by a lawyer. Details: What is the notice period required to terminate renewal?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Notice Period To Terminate Renewal\" that s...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document and found information about termination but not specifically about the notice period to terminate renewal.\n\nANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no specific notice period for terminating renewal located. The document mentions renewal terms in Section 1.3 (lines 30-31) stating the agreement is renewable annually for up to 10 additional years, but does not specify any notice period required to terminate such renewals.",
+      "agent_response_short": "I have read the entire document and found information about termination but not specifically about the notice period to terminate renewal.\n\nANSWER: The requested information is not found in this docum...",
+      "timestamp": "2025-09-07T18:21:01.732628"
+    },
+    {
+      "question_num": 8,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Governing Law",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Governing Law\" that should be reviewed by a lawyer. Details: Which state/country's law governs the interpretation of the contract?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Governing Law\" that should be reviewed by ...",
+      "expected_answers": [
+        "This Agreement is to be construed according to the laws          of the State of Illinois."
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Illinois\nCITATION: \"This Agreement is to be construed according to the laws of the State of Illinois.\" [Line: 266]",
+      "agent_response_short": "ANSWER: Illinois\nCITATION: \"This Agreement is to be construed according to the laws of the State of Illinois.\" [Line: 266]",
+      "timestamp": "2025-09-07T18:21:05.009971"
+    },
+    {
+      "question_num": 9,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Most Favored Nation",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Most Favored Nation\" that should be reviewed by a lawyer. Details: Is there a clause that if a third party gets better terms on the licensing or sale of technology/goods/services described in the contract, the buyer of such technology/goods/services under the contract shall be entitled to those better terms?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Most Favored Nation\" that should be review...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document (lines 1-282) and found no mention of \"Most Favored Nation\" or any clause stating that if a third party gets better terms on licensing or sale of technology/goods/services, the buyer would be entitled to those better terms.\n\nANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "I have read the entire document (lines 1-282) and found no mention of \"Most Favored Nation\" or any clause stating that if a third party gets better terms on licensing or sale of technology/goods/servi...",
+      "timestamp": "2025-09-07T18:21:08.905533"
+    },
+    {
+      "question_num": 10,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Compete",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Non-Compete\" that should be reviewed by a lawyer. Details: Is there a restriction on the ability of a party to compete with the counterparty or operate in a certain geography or business or technology sector? ",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Non-Compete\" that should be reviewed by a ...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have found the relevant non-compete provisions in the document. Let me extract the specific sections:\n\nANSWER: Section 5.7 Nonsolicitation contains non-compete restrictions that should be reviewed by a lawyer.\n\nCITATIONS:\n1. \"During the Term of this Agreement and for a period of twelve (12) months thereafter, the Distributor (on behalf of itself, each of its affiliates and each of their respective representatives) agrees that it will not directly or indirectly solicit or hire any executive, managerial or technical employee of the Company or any of its affiliates.\" [Line: 214]\n\n2. \"Distributor further agrees that it will not interfere with or otherwise disrupt the business relations between the Company or any of its affiliates and any of their current or prospective customers, suppliers or distributors, during the Term of the Agreement and for a period of eighteen (18) months thereafter, nor will Distributor solicit any customer or potential customer of Company to purchase a competitive product during that period.\" [Lines: 216-227]",
+      "agent_response_short": "I have found the relevant non-compete provisions in the document. Let me extract the specific sections:\n\nANSWER: Section 5.7 Nonsolicitation contains non-compete restrictions that should be reviewed b...",
+      "timestamp": "2025-09-07T18:21:25.389335"
+    },
+    {
+      "question_num": 11,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Exclusivity",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Exclusivity\" that should be reviewed by a lawyer. Details: Is there an exclusive dealing  commitment with the counterparty? This includes a commitment to procure all “requirements” from one party of certain technology, goods, or services or a prohibition on licensing or selling technology, goods or services to third parties, or a prohibition on  collaborating or working with other parties), whether during the contract or  after the contract ends (or both).",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Exclusivity\" that should be reviewed by a ...",
+      "expected_answers": [
+        "The  Distributor  shall  not order or                   purchase Products from any source other than the Company.",
+        "Company  hereby   appoints                            Distributor as Company's exclusive distributor within                            the Market and grants to  Distributor  the  exclusive                            right  to sell and  distribute  Products  within  the                            Market,   and   Distributor   hereby   accepts   such                            appointment  and such grant,  in accordance  with the                            terms and conditions of this  Agreement.",
+        "The Company appoints the Distributor as an  exclusive  distributor  of Products in the Market,  subject to the terms and conditions of this Agreement."
+      ],
+      "expected_count": 3,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Yes, there are exclusive dealing commitments in this contract.\n\nCITATIONS:\n1. \"The Company appoints the Distributor as an exclusive distributor of Products in the Market\" [Line: 18]\n2. \"Company hereby appoints Distributor as Company's exclusive distributor within the Market and grants to Distributor the exclusive right to sell and distribute Products within the Market\" [Line: 22]\n3. \"Distributor will sell any and all Products required by such customers in the Market to those customers\" [Line: 22]\n4. \"Distributor shall be free to sell to its customers in any market which does not have another exclusive distributor\" [Line: 22]\n5. \"The Distributor shall not order or purchase Products from any source other than the Company\" [Line: 82]",
+      "agent_response_short": "ANSWER: Yes, there are exclusive dealing commitments in this contract.\n\nCITATIONS:\n1. \"The Company appoints the Distributor as an exclusive distributor of Products in the Market\" [Line: 18]\n2. \"Compan...",
+      "timestamp": "2025-09-07T18:21:31.534685"
+    },
+    {
+      "question_num": 12,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__No-Solicit Of Customers",
+      "question_full": "Highlight the parts (if any) of this contract related to \"No-Solicit Of Customers\" that should be reviewed by a lawyer. Details: Is a party restricted from contracting or soliciting customers or partners of the counterparty, whether during the contract or after the contract ends (or both)?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"No-Solicit Of Customers\" that should be re...",
+      "expected_answers": [
+        "Distributor further agrees that it will not interfere                            with or  otherwise  disrupt  the  business  relations                            between the Company or nay of its  affiliates and any                            of their current or prospective customers,  suppliers                            or distributors, during the",
+        "Term of the  Agreement  and for a period of  eighteen\n\n\n\n\n\n                           (18) months thereafter,  nor will Distributor solicit                            any  customer  or  potential  customer  of Company to                            purchase a competitive product during that period."
+      ],
+      "expected_count": 2,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Yes, there are restrictions on soliciting customers. During the Term of the Agreement and for 18 months thereafter, Distributor cannot interfere with business relations between Company and its current or prospective customers, and cannot solicit any customer or potential customer of Company to purchase a competitive product.\n\nCITATION: \"Distributor further agrees that it will not interfere with or otherwise disrupt the business relations between the Company or any of its affiliates and any of their current or prospective customers, suppliers or distributors, during the Term of the Agreement and for a period of eighteen (18) months thereafter, nor will Distributor solicit any customer or potential customer of Company to purchase a competitive product during that period.\" [Line: 216-226]",
+      "agent_response_short": "ANSWER: Yes, there are restrictions on soliciting customers. During the Term of the Agreement and for 18 months thereafter, Distributor cannot interfere with business relations between Company and its...",
+      "timestamp": "2025-09-07T18:21:37.267911"
+    },
+    {
+      "question_num": 13,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Competitive Restriction Exception",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Competitive Restriction Exception\" that should be reviewed by a lawyer. Details: This category includes the exceptions or carveouts to Non-Compete, Exclusivity and No-Solicit of Customers above.",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Competitive Restriction Exception\" that sh...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document (282 lines) and searched for any mention of \"Competitive Restriction Exception\" or related terms that would indicate exceptions or carveouts to Non-Compete, Exclusivity, or No-Solicit provisions.\n\nThe document contains non-competition and non-solicitation provisions in Section 5.7, but I found no mention of any exceptions or carveouts to these restrictions.\n\nANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no \"Competitive Restriction Exception\" or related exceptions to Non-Compete, Exclusivity, or No-Solicit provisions located.",
+      "agent_response_short": "I have read the entire document (282 lines) and searched for any mention of \"Competitive Restriction Exception\" or related terms that would indicate exceptions or carveouts to Non-Compete, Exclusivity...",
+      "timestamp": "2025-09-07T18:21:43.652384"
+    },
+    {
+      "question_num": 14,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__No-Solicit Of Employees",
+      "question_full": "Highlight the parts (if any) of this contract related to \"No-Solicit Of Employees\" that should be reviewed by a lawyer. Details: Is there a restriction on a party’s soliciting or hiring employees and/or contractors from the  counterparty, whether during the contract or after the contract ends (or both)?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"No-Solicit Of Employees\" that should be re...",
+      "expected_answers": [
+        "During the Term of this Agreement and for a period of                            twelve (12) months  thereafter,  the  Distributor (on                            behalf of itself,  each of its affiliates and each of                            their respective representatives) agrees that it will                            not  directly  or  indirectly  solicit  or  hire  any                            executive,  managerial  or technical  employee of the                            Company or any of its affiliates."
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Yes, there is a restriction on soliciting or hiring employees.\n\nCITATION: \"During the Term of this Agreement and for a period of twelve (12) months thereafter, the Distributor (on behalf of itself, each of its affiliates and each of their respective representatives) agrees that it will not directly or indirectly solicit or hire any executive, managerial or technical employee of the Company or any of its affiliates.\" [Line: 214]",
+      "agent_response_short": "ANSWER: Yes, there is a restriction on soliciting or hiring employees.\n\nCITATION: \"During the Term of this Agreement and for a period of twelve (12) months thereafter, the Distributor (on behalf of it...",
+      "timestamp": "2025-09-07T18:21:47.934452"
+    },
+    {
+      "question_num": 15,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Disparagement",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Non-Disparagement\" that should be reviewed by a lawyer. Details: Is there a requirement on a party not to disparage the counterparty?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Non-Disparagement\" that should be reviewed...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no non-disparagement clause located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no non-disparagement clause located.",
+      "timestamp": "2025-09-07T18:21:52.324548"
+    },
+    {
+      "question_num": 16,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Termination For Convenience",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Termination For Convenience\" that should be reviewed by a lawyer. Details: Can a party terminate this  contract without cause (solely by giving a notice and allowing a waiting  period to expire)?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Termination For Convenience\" that should b...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have found the relevant termination provisions in the contract. Let me examine the termination section more closely to identify if there are any \"Termination for Convenience\" clauses.\n\nLooking at Section 4.2 \"Termination for Cause\" (lines 158-162), this only addresses termination with cause, not termination without cause. I need to check if there are any other termination provisions that allow termination without cause.\n\nLet me search for any other termination language in the document:\n\nANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no \"Termination for Convenience\" provisions located. The contract only contains \"Termination for Cause\" provisions in Section 4.2, which require specific grounds for termination such as payment failure, material breach, or bankruptcy/insolvency events. There are no provisions allowing a party to terminate the contract without cause by simply giving notice and allowing a waiting period to expire.",
+      "agent_response_short": "I have found the relevant termination provisions in the contract. Let me examine the termination section more closely to identify if there are any \"Termination for Convenience\" clauses.\n\nLooking at Se...",
+      "timestamp": "2025-09-07T18:21:59.439556"
+    },
+    {
+      "question_num": 17,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Rofr/Rofo/Rofn",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Rofr/Rofo/Rofn\" that should be reviewed by a lawyer. Details: Is there a clause granting one party a right of first refusal, right of first offer or right of first negotiation to purchase, license, market, or distribute equity interest, technology, assets, products or services?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Rofr/Rofo/Rofn\" that should be reviewed by...",
+      "expected_answers": [
+        "Distributor  shall exercise its option to                   become  exclusive  Distributor of other Products or devices by                   serving  written  notification  on Company of its  election to                   become  exclusive  distributor  within  thirty  (30) days upon                   which  Company  informed  Distributor  in writing of Company's                   intention  to  introduce   other   Products  or  devices.",
+        "If                   Distributor  does not exercise its option as herein  provided,                   Company may  distribute  the other  Products or devices within                   the Market itself or through other distributors.",
+        "Should Company  introduce  other products or                   devices as contemplated by recital paragraph \"A\",  Distributor                   shall  have  the  option  of  becoming   Company's   exclusive                   distributor  of such  other  Products  or  devices  within the                   Market."
+      ],
+      "expected_count": 3,
+      "is_impossible": false,
+      "agent_response_full": "I have read the entire document (all 282 lines) and searched for any clauses related to \"Rofr/Rofo/Rofn\" (right of first refusal, right of first offer, or right of first negotiation) regarding the purchase, license, marketing, or distribution of equity interest, technology, assets, products or services.\n\nANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "I have read the entire document (all 282 lines) and searched for any clauses related to \"Rofr/Rofo/Rofn\" (right of first refusal, right of first offer, or right of first negotiation) regarding the pur...",
+      "timestamp": "2025-09-07T18:22:01.985331"
+    },
+    {
+      "question_num": 18,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Change Of Control",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Change Of Control\" that should be reviewed by a lawyer. Details: Does one party have the right to terminate or is consent or notice required of the counterparty if such party undergoes a change of control, such as a merger, stock sale, transfer of all or substantially all of its assets or business, or assignment by operation of law?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Change Of Control\" that should be reviewed...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document (lines 1-282) and searched for any provisions related to \"Change of Control\" that would give one party the right to terminate or require consent/notice if the other party undergoes a change of control (such as merger, stock sale, transfer of assets, or assignment by operation of law).\n\n**ANSWER:** The requested information is not found in this document.\n\n**SEARCH SUMMARY:** Examined lines 1-282, no provisions related to \"Change of Control\" termination rights, consent requirements, or notice obligations were located.",
+      "agent_response_short": "I have read the entire document (lines 1-282) and searched for any provisions related to \"Change of Control\" that would give one party the right to terminate or require consent/notice if the other par...",
+      "timestamp": "2025-09-07T18:22:07.735089"
+    },
+    {
+      "question_num": 19,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Anti-Assignment",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Anti-Assignment\" that should be reviewed by a lawyer. Details: Is consent or notice required of a party if the contract is assigned to a third party?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Anti-Assignment\" that should be reviewed b...",
+      "expected_answers": [
+        "No  assignment  of this  Agreement  or any  right                   accruing  hereunder  shall be made by the Distributor in whole                   or in part,  without the prior written consent of the Company,                   which  consent  shall  not  be  unreasonably  withheld.",
+        "In  the  event  either  party  (a)  becomes                   adjudicated insolvent,  (b) discontinues its business, (c) has                   voluntary of  involuntary  bankruptcy  proceedings  instituted                   against  it, or (d) makes an  assignment  for the  benefit  of                   creditors, the other party shall be entitled to terminate this                   Agreement effective immediately upon written notice."
+      ],
+      "expected_count": 2,
+      "is_impossible": false,
+      "agent_response_full": "I found the anti-assignment provision in the contract. Let me extract the specific information about consent requirements.\n\nANSWER: Yes, consent is required. The Distributor cannot assign this Agreement or any rights without the prior written consent of the Company, which consent shall not be unreasonably withheld.\n\nCITATION: \"No assignment of this Agreement or any right accruing hereunder shall be made by the Distributor in whole or in part, without the prior written consent of the Company, which consent shall not be unreasonably withheld.\" [Line: 232]",
+      "agent_response_short": "I found the anti-assignment provision in the contract. Let me extract the specific information about consent requirements.\n\nANSWER: Yes, consent is required. The Distributor cannot assign this Agreeme...",
+      "timestamp": "2025-09-07T18:22:12.598506"
+    },
+    {
+      "question_num": 20,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Revenue/Profit Sharing",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Revenue/Profit Sharing\" that should be reviewed by a lawyer. Details: Is one party required to share revenue or profit with the counterparty for any technology, goods, or services?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Revenue/Profit Sharing\" that should be rev...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document (282 lines) and found no provisions related to revenue sharing or profit sharing between the parties. The agreement is a standard distributor agreement that covers:\n\n- Product pricing and purchase terms\n- Minimum purchase requirements\n- Distribution rights and territories\n- Warranties and product returns\n- Termination conditions\n\nThere are no clauses requiring either party to share revenue or profits with the other party for technology, goods, or services.\n\n**ANSWER:** The requested information is not found in this document.\n**SEARCH SUMMARY:** Examined lines 1-282, no revenue sharing or profit sharing provisions located.",
+      "agent_response_short": "I have read the entire document (282 lines) and found no provisions related to revenue sharing or profit sharing between the parties. The agreement is a standard distributor agreement that covers:\n\n- ...",
+      "timestamp": "2025-09-07T18:22:17.004980"
+    },
+    {
+      "question_num": 21,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Price Restrictions",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Price Restrictions\" that should be reviewed by a lawyer. Details: Is there a restriction on the  ability of a party to raise or reduce prices of technology, goods, or  services provided?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Price Restrictions\" that should be reviewe...",
+      "expected_answers": [
+        "The Company  also  reserves  the right to                            increase  or  decrease  the price  per unit  based on                            Company   wide   changes   in  unit   prices  to  all                            distributors of the Company,  provided however,  that                            any price changes, other than those based on the CPI,                            shall be uniformly applied to all distributors of the                            Products   and  shall   reasonably   applied  to  all                            distributors  of the  Products  and shall  reasonably                            reflect Company's costs of manufacturing the Products                            and/or  market  demand  for  the  Products,  provided                            further  than any increase in price based upon market                            demand   shall   not  be  so  great  as  to   deprive                            Distributor  of  its  normal  and  customary   profit                            margin.",
+        "The prices set forth in                            Section   2.4(a)  shall  be  subject  to   adjustment                            annually  on the  first  day  of  each  Product  Year                            beginning in the calendar  year 2000 and on the first                            day of each succeeding Product Year for the remainder                            of the Term and all  renewals  of this  Agreement  in                            proportion   to  the  increase  or  decrease  in  the                            Consumer  Price Index (CPI) as compared to the CPI as                            it  existed  on the  first  day of the  Term  of this                            Agreement."
+      ],
+      "expected_count": 2,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "timestamp": "2025-09-07T18:22:20.174463"
+    },
+    {
+      "question_num": 22,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Minimum Commitment",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Minimum Commitment\" that should be reviewed by a lawyer. Details: Is there a minimum order size or minimum amount or units per-time period that one party must buy from the counterparty under the contract?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Minimum Commitment\" that should be reviewe...",
+      "expected_answers": [
+        "A minimum of a $250,000.00  purchase  order  must be  received  by Company by the first of each month for a total (12) month  period.",
+        "Company's representatives will                            make themselves available three days per month in the                            first   Product   Year  to  consult  with  and  train                            Distributor.",
+        "(A)    375 units in the first Product Year (1999)\n\n                  (B)    750 units in the next succeeding Product Year; (2000)\n\n                  (C)    937 units in the next succeeding Product Year; (2001)\n\n                  (D)    1,171 units in the next succeeding Product Year; (2002)\n\n                  (E)    1,463 units in the next succeeding Product Year; (2003)\n\n                  (F)    1,828 units in the next succeeding Product Year; (2004)\n\n                  (G)    2,285 units in the next succeeding Product Year; (2005)\n\n                  (H)    2,856  unit each in the lat  three  years of                          the initial Term of this  Agreement  and any                          renewals thereof.",
+        "In                            order  to  maintain  the  exclusive  rights  to sell,                            lease, distribute and service Products in the Market,                            the Distributor must use all commercially  reasonably                            efforts to purchase for sale to  subdistributors  the                            following minimum quantities of the Products from the                            Company:\n\n         On the  commencement of the Term  Distributor will issue to the Company an  irrevocable  letter of credit (\"LC\") in the amount of Five Hundred  Thousand Dollars  ($500,000),  the form of which is  attached  hereto  as  Exhibit  A and incorporated  herein by reference.",
+        "If the  Distributor  shall fail to purchase the minimum number of units in any year, the  Distributor's  exclusive rights to sell and distribute the Product in the Market,  may at Company's sole option, be reevaluated."
+      ],
+      "expected_count": 5,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Yes, there are minimum purchase requirements. The Distributor must purchase minimum quantities of Products each Product Year: 375 units (1999), 750 units (2000), 937 units (2001), 1,171 units (2002), 1,463 units (2003), 1,828 units (2004), 2,285 units (2005), and 2,856 units each for the last three years of the initial Term. Additionally, a minimum $250,000 purchase order must be received by Company by the first of each month for a total 12-month period.\n\nCITATIONS: \n1. \"the Distributor must use all commercially reasonably efforts to purchase for sale to subdistributors the following minimum quantities of the Products from the Company: (A) 375 units in the first Product Year (1999) (B) 750 units in the next succeeding Product Year; (2000) (C) 937 units in the next succeeding Product Year; (2001) (D) 1,171 units in the next succeeding Product Year; (2002) (E) 1,463 units in the next succeeding Product Year; (2003) (F) 1,828 units in the next succeeding Product Year; (2004) (G) 2,285 units in the next succeeding Product Year; (2005) (H) 2,856 unit each in the lat three years of the initial Term of this Agreement and any renewals thereof.\" [Lines: 36-58]\n\n2. \"A minimum of a $250,000.00 purchase order must be received by Company by the first of each month for a total (12) month period.\" [Lines: 38-39]",
+      "agent_response_short": "ANSWER: Yes, there are minimum purchase requirements. The Distributor must purchase minimum quantities of Products each Product Year: 375 units (1999), 750 units (2000), 937 units (2001), 1,171 units ...",
+      "timestamp": "2025-09-07T18:22:30.440754"
+    },
+    {
+      "question_num": 23,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Volume Restriction",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Volume Restriction\" that should be reviewed by a lawyer. Details: Is there a fee increase or consent requirement, etc. if one party’s use of the product/services exceeds certain threshold?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Volume Restriction\" that should be reviewe...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document and found no sections related to \"Volume Restriction\" that mention fee increases or consent requirements when one party's use of the product/services exceeds certain thresholds.\n\nANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "I have read the entire document and found no sections related to \"Volume Restriction\" that mention fee increases or consent requirements when one party's use of the product/services exceeds certain th...",
+      "timestamp": "2025-09-07T18:22:33.504897"
+    },
+    {
+      "question_num": 24,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Ip Ownership Assignment",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Ip Ownership Assignment\" that should be reviewed by a lawyer. Details: Does intellectual property created  by one party become the property of the counterparty, either per the terms of the contract or upon the occurrence of certain events?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Ip Ownership Assignment\" that should be re...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document (lines 1-282) and searched for any provisions related to \"IP Ownership Assignment\" or intellectual property ownership transfer. \n\n**ANSWER:** The requested information is not found in this document.\n\n**SEARCH SUMMARY:** Examined lines 1-282, no provisions found regarding intellectual property created by one party becoming the property of the counterparty, either per the terms of the contract or upon the occurrence of certain events. The document contains only standard intellectual property clauses in Section 5.5 (no license granted) and Section 5.6 (no action to invalidate IP rights), but no IP ownership assignment provisions.",
+      "agent_response_short": "I have read the entire document (lines 1-282) and searched for any provisions related to \"IP Ownership Assignment\" or intellectual property ownership transfer. \n\n**ANSWER:** The requested information ...",
+      "timestamp": "2025-09-07T18:22:37.992712"
+    },
+    {
+      "question_num": 25,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Joint Ip Ownership",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Joint Ip Ownership\" that should be reviewed by a lawyer. Details: Is there any clause providing for joint or shared ownership of intellectual property between the parties to the contract?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Joint Ip Ownership\" that should be reviewe...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no clauses providing for joint or shared ownership of intellectual property between the parties were located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no clauses providing for joint or shared ownership of intellectual property between the parties w...",
+      "timestamp": "2025-09-07T18:22:42.099204"
+    },
+    {
+      "question_num": 26,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__License Grant",
+      "question_full": "Highlight the parts (if any) of this contract related to \"License Grant\" that should be reviewed by a lawyer. Details: Does the contract contain a license granted by one party to its counterparty?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"License Grant\" that should be reviewed by ...",
+      "expected_answers": [
+        "Company  hereby   appoints                            Distributor as Company's exclusive distributor within                            the Market and grants to  Distributor  the  exclusive                            right  to sell and  distribute  Products  within  the                            Market,   and   Distributor   hereby   accepts   such                            appointment  and such grant,  in accordance  with the                            terms and conditions of this  Agreement.",
+        "The Company  hereby grants the  Distributor                            the right to do business  and use the name  \"Electric                            City of  Illinois\"  or a  similar  variation  thereof                            (collectively   the   \"Names\")  for  use  under  this                            Agreement."
+      ],
+      "expected_count": 2,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Yes, the contract contains a license granted by one party to its counterparty.\n\nCITATION: \"License. The Company hereby grants the Distributor the right to do business and use the name 'Electric City of Illinois' or a similar variation thereof (collectively the 'Names') for use under this Agreement.\" [Line: 24]",
+      "agent_response_short": "ANSWER: Yes, the contract contains a license granted by one party to its counterparty.\n\nCITATION: \"License. The Company hereby grants the Distributor the right to do business and use the name 'Electri...",
+      "timestamp": "2025-09-07T18:22:45.159258"
+    },
+    {
+      "question_num": 27,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Transferable License",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Non-Transferable License\" that should be reviewed by a lawyer. Details: Does the contract limit the ability of a party to transfer the license being granted to a third party?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Non-Transferable License\" that should be r...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document and found the relevant information about license transferability.\n\nANSWER: The contract limits the ability of the Distributor to transfer the license. Section 1.2 states that \"Distributor shall have no right to sublicense the Names or to do business under any other names without the Company's prior approval in writing.\" Additionally, Section 6.1 requires that \"No assignment of this Agreement or any right accruing hereunder shall be made by the Distributor in whole or in part, without the prior written consent of the Company.\"\n\nCITATIONS: \n1. \"Distributor shall have no right to sublicense the Names or to do business under any other names without the Company's prior approval in writing.\" [Line: 24]\n2. \"No assignment of this Agreement or any right accruing hereunder shall be made by the Distributor in whole or in part, without the prior written consent of the Company\" [Line: 232]",
+      "agent_response_short": "I have read the entire document and found the relevant information about license transferability.\n\nANSWER: The contract limits the ability of the Distributor to transfer the license. Section 1.2 state...",
+      "timestamp": "2025-09-07T18:23:06.947873"
+    },
+    {
+      "question_num": 28,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Affiliate License-Licensor",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Affiliate License-Licensor\" that should be reviewed by a lawyer. Details: Does the contract contain a license grant by affiliates of the licensor or that includes intellectual property of affiliates of the licensor? ",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Affiliate License-Licensor\" that should be...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located regarding \"Affiliate License-Licensor\" or license grants by affiliates of the licensor that include intellectual property of affiliates.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located regarding \"Affiliate License-Licensor\" or license grants by affil...",
+      "timestamp": "2025-09-07T18:23:11.241845"
+    },
+    {
+      "question_num": 29,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Affiliate License-Licensee",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Affiliate License-Licensee\" that should be reviewed by a lawyer. Details: Does the contract contain a license grant to a licensee (incl. sublicensor) and the affiliates of such licensee/sublicensor?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Affiliate License-Licensee\" that should be...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no license grant to a licensee (including sublicensor) and the affiliates of such licensee/sublicensor was located. The document contains a distributor agreement with license grants only to the Distributor entity itself, not to any affiliates of the Distributor.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no license grant to a licensee (including sublicensor) and the affiliates of such licensee/sublic...",
+      "timestamp": "2025-09-07T18:23:15.166533"
+    },
+    {
+      "question_num": 30,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Unlimited/All-You-Can-Eat-License",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Unlimited/All-You-Can-Eat-License\" that should be reviewed by a lawyer. Details: Is there a clause granting one party an “enterprise,” “all you can eat” or unlimited usage license?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Unlimited/All-You-Can-Eat-License\" that sh...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document and searched for any clauses related to \"Unlimited/All-You-Can-Eat-License,\" \"enterprise,\" \"all you can eat,\" or unlimited usage licenses.\n\n**ANSWER:** The requested information is not found in this document.\n\n**SEARCH SUMMARY:** Examined lines 1-282, no relevant information located. The document contains a distributor agreement with specific minimum purchase requirements and exclusive distribution rights, but no unlimited or \"all-you-can-eat\" licensing provisions.",
+      "agent_response_short": "I have read the entire document and searched for any clauses related to \"Unlimited/All-You-Can-Eat-License,\" \"enterprise,\" \"all you can eat,\" or unlimited usage licenses.\n\n**ANSWER:** The requested in...",
+      "timestamp": "2025-09-07T18:23:20.797980"
+    },
+    {
+      "question_num": 31,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Irrevocable Or Perpetual License",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Irrevocable Or Perpetual License\" that should be reviewed by a lawyer. Details: Does the contract contain a  license grant that is irrevocable or perpetual?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Irrevocable Or Perpetual License\" that sho...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no irrevocable or perpetual license grant located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no irrevocable or perpetual license grant located.",
+      "timestamp": "2025-09-07T18:23:27.992639"
+    },
+    {
+      "question_num": 32,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Source Code Escrow",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Source Code Escrow\" that should be reviewed by a lawyer. Details: Is one party required to deposit its source code into escrow with a third party, which can be released to the counterparty upon the occurrence of certain events (bankruptcy,  insolvency, etc.)?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Source Code Escrow\" that should be reviewe...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "timestamp": "2025-09-07T18:23:31.653063"
+    },
+    {
+      "question_num": 33,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Post-Termination Services",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Post-Termination Services\" that should be reviewed by a lawyer. Details: Is a party subject to obligations after the termination or expiration of a contract, including any post-termination transition, payment, transfer of IP, wind-down, last-buy, or similar commitments?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Post-Termination Services\" that should be ...",
+      "expected_answers": [
+        "Upon the expiration or termination of                   this  Agreement,  pursuant to Section  4.1 or 4.2 hereof,  the                   Company may, at its option to be  exercised  within 30 days of                   the date of the termination of this Agreement, and in its sole                   discretion,  repurchase  any Products in the possession of the                   Distributor  at the net invoice price paid by the  Distributor                   to  the  Company  less  any  applicable  special   allowances,                   discounts, shipping or allowances for cooperative advertising.",
+        "and which the Company has not repurchased.",
+        "Following  expiration or                   termination of this Agreement, the Distributor may continue to                   sell any Products in the Market which are in its inventory",
+        "If Company  terminates  the  Agreement  without  cause and for                   reasons other than  Distributor's  failure to meet its minimum                   expectations;   it  shall   repurchase  from  Distributor  any                   unopened  Product,  and shall bear all shipping,  handling and                   related  costs  notwithstanding  any other  remedies  to which                   Distributor  may be  entitled."
+      ],
+      "expected_count": 4,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "timestamp": "2025-09-07T18:23:34.618120"
+    },
+    {
+      "question_num": 34,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Audit Rights",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Audit Rights\" that should be reviewed by a lawyer. Details: Does a party have the right to  audit the books, records, or physical locations of the counterparty to ensure compliance with the contract?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Audit Rights\" that should be reviewed by a...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no provisions related to audit rights found.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no provisions related to audit rights found.",
+      "timestamp": "2025-09-07T18:23:41.706701"
+    },
+    {
+      "question_num": 35,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Uncapped Liability",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Uncapped Liability\" that should be reviewed by a lawyer. Details: Is a party’s liability uncapped upon the breach of its obligation in the contract? This also includes uncap liability for a particular type of breach such as IP infringement or breach of confidentiality obligation.",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Uncapped Liability\" that should be reviewe...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document and searched for provisions related to \"Uncapped Liability\" - specifically looking for whether a party's liability is uncapped upon breach of obligation, including for particular types of breaches such as IP infringement or breach of confidentiality.\n\nAfter examining all 282 lines of the contract, I found no provisions that explicitly state liability is uncapped for any type of breach. The document contains indemnification clauses (Section 5.3) and warranty provisions (Section 3.3), but no language indicating unlimited or uncapped liability for breaches.\n\nANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no provisions found regarding uncapped liability for breaches of obligation, IP infringement, or confidentiality violations.",
+      "agent_response_short": "I have read the entire document and searched for provisions related to \"Uncapped Liability\" - specifically looking for whether a party's liability is uncapped upon breach of obligation, including for ...",
+      "timestamp": "2025-09-07T18:23:55.613873"
+    },
+    {
+      "question_num": 36,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Cap On Liability",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Cap On Liability\" that should be reviewed by a lawyer. Details: Does the contract include a cap on liability upon the breach of a party’s obligation? This includes time limitation for the counterparty to bring claims or maximum amount for recovery.",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Cap On Liability\" that should be reviewed ...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "timestamp": "2025-09-07T18:23:57.408532"
+    },
+    {
+      "question_num": 37,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Liquidated Damages",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Liquidated Damages\" that should be reviewed by a lawyer. Details: Does the contract contain a clause that would award either party liquidated damages for breach or a fee upon the termination of a contract (termination fee)?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Liquidated Damages\" that should be reviewe...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "I have read the entire document and searched for any mention of \"liquidated damages,\" \"termination fee,\" or similar provisions that would award damages upon breach or termination of the contract.\n\n**ANSWER:** The requested information is not found in this document.\n\n**SEARCH SUMMARY:** Examined lines 1-282, no provisions for liquidated damages or termination fees were located. The contract contains termination provisions (Section 4) and indemnification clauses (Section 5.3), but no liquidated damages or termination fee clauses.",
+      "agent_response_short": "I have read the entire document and searched for any mention of \"liquidated damages,\" \"termination fee,\" or similar provisions that would award damages upon breach or termination of the contract.\n\n**A...",
+      "timestamp": "2025-09-07T18:24:03.038495"
+    },
+    {
+      "question_num": 38,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Warranty Duration",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Warranty Duration\" that should be reviewed by a lawyer. Details: What is the duration of any  warranty against defects or errors in technology, products, or services  provided under the contract?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Warranty Duration\" that should be reviewed...",
+      "expected_answers": [
+        "In the event that Company is unable or unwilling to                   promptly  perform any warranty work without  reasonable  cause                   and following  full and fair  opportunity  to do so, or in the                   event of the necessity  for  emergency  repairs of a defective                   Product  for  which  there  is no  reasonable  possibility  of                   performance by Company,  Distributor may perform such warranty                   work or hire a third party to perform such  warranty  work and                   the reasonable cost thereof shall be paid by Company.",
+        "If, within the twenty-four  (24) month warranty                   period set forth above,  Company  received from Distributor or                   any of  Distributor's  end-user's  a notice  which may be oral                   notice  confirmed in writing)  that any of the  Products  sold                   hereunder do not meet the Warranties  specified above, Company                   shall  thereupon  correct  each such defect by  providing  the                   necessary repairs,  and/or replacement parts, or if necessary,                   Products.",
+        "The Company reserves the                   right to reject any Products  that are not factory  sealed and                   in new and unused  condition.",
+        "In the event of any  damages or                            other  defect in a  Product  which is  discovered  by                            Distributor   within   365   days   of   satisfactory                            installation  of  a  Product  at  Distributor's  or a                            subdistributor's   customer,  the  Distributor  shall                            promptly   report  the  same  to  the   Company   and                            reasonably  demonstrate the defect to the Company.",
+        "The  Company  represents  that,  to the  best  of its                            knowledge,  Products are in compliance with all laws,                            and  that  the  Products  will  not be  hazardous  or                            dangerous  when  used  for  their  intended  purpose.                            Products  do not  cause  harmful  emissions  or other                            environmental  hazards and Products do not violate or                            infringe any patents, copyrights, trademarks or other                            rights  of  nay  third  party(ies).",
+        "Company  further  warrants that the                   Products sold hereunder  shall be free from defects in design,                   materials and  workmanship  for a period of  twenty-four  (24)                   months after delivery to Distributor's  end-user.",
+        "The                            Company shall not have any obligation with respect to                            Products  after  365  days   following   delivery  to                            Distributor, except as provided herein.",
+        "If Company does not give Annual                            Notice  pursuant to Section  3.1 hereof,  Distributor                            may, within 90 days of  modification,  improvement or                            alteration,  return the Products to the Company."
+      ],
+      "expected_count": 8,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: twenty-four (24) months after delivery to Distributor's end-user\nCITATION: \"Company further warrants that the Products sold hereunder shall be free from defects in design, materials and workmanship for a period of twenty-four (24) months after delivery to Distributor's end-user.\" [Line: 134]",
+      "agent_response_short": "ANSWER: twenty-four (24) months after delivery to Distributor's end-user\nCITATION: \"Company further warrants that the Products sold hereunder shall be free from defects in design, materials and workma...",
+      "timestamp": "2025-09-07T18:24:07.540420"
+    },
+    {
+      "question_num": 39,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Insurance",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Insurance\" that should be reviewed by a lawyer. Details: Is there a requirement for insurance that must be maintained by one party for the benefit of the counterparty?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Insurance\" that should be reviewed by a la...",
+      "expected_answers": [
+        "Company will carry a reasonable                   amount of product  liability  insurance  through a  reasonably                   acceptable  products liability insurance company and will name                   the  Distributor  as an additional  insured under that policy.                   Company  will make  reasonable  efforts  to  procure a policy,                   which is non-cancelable, except upon thirty (30) days, advance                   notice to the Distributor."
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Yes, there is a requirement for insurance that must be maintained by the Company for the benefit of the Distributor.\n\nCITATION: \"Product Liability Insurance. Company will carry a reasonable amount of product liability insurance through a reasonably acceptable products liability insurance company and will name the Distributor as an additional insured under that policy. Company will make reasonable efforts to procure a policy, which is non-cancelable, except upon thirty (30) days, advance notice to the Distributor.\" [Line: 206]",
+      "agent_response_short": "ANSWER: Yes, there is a requirement for insurance that must be maintained by the Company for the benefit of the Distributor.\n\nCITATION: \"Product Liability Insurance. Company will carry a reasonable am...",
+      "timestamp": "2025-09-07T18:24:12.369716"
+    },
+    {
+      "question_num": 40,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Covenant Not To Sue",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Covenant Not To Sue\" that should be reviewed by a lawyer. Details: Is a party restricted from contesting the validity of the counterparty’s ownership of intellectual property or otherwise bringing a claim against the counterparty for matters unrelated to the contract?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Covenant Not To Sue\" that should be review...",
+      "expected_answers": [
+        "During the Term of this Agreement and                   for three  years  thereafter,  the  Distributor  (on behalf of                   itself and each of its affiliates) agrees not to commence,  or                   provide any  information to or otherwise  assist any person or                   entity in  connection  with,  any suit,  action or  proceeding                   contesting the ownership,  validity or  enforceability  of any                   patent,  copyright,  trademark,  trade name or other propriety                   right owned by or licensed to the Company,  whether  currently                   existing or hereinafter invented, developed or acquired unless                   required to by court order."
+      ],
+      "expected_count": 1,
+      "is_impossible": false,
+      "agent_response_full": "ANSWER: Yes, the Distributor is restricted from contesting the validity of the Company's intellectual property ownership and from bringing related claims.\n\nCITATION: \"No Action to Invalidate. During the Term of this Agreement and for three years thereafter, the Distributor (on behalf of itself and each of its affiliates) agrees not to commence, or provide any information to or otherwise assist any person or entity in connection with, any suit, action or proceeding contesting the ownership, validity or enforceability of any patent, copyright, trademark, trade name or other propriety right owned by or licensed to the Company, whether currently existing or hereinafter invented, developed or acquired unless required to by court order.\" [Line: 210]",
+      "agent_response_short": "ANSWER: Yes, the Distributor is restricted from contesting the validity of the Company's intellectual property ownership and from bringing related claims.\n\nCITATION: \"No Action to Invalidate. During t...",
+      "timestamp": "2025-09-07T18:24:20.413513"
+    },
+    {
+      "question_num": 41,
+      "question_id": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Third Party Beneficiary",
+      "question_full": "Highlight the parts (if any) of this contract related to \"Third Party Beneficiary\" that should be reviewed by a lawyer. Details: Is there a non-contracting party who is a beneficiary to some or all of the clauses in the contract and therefore can enforce its rights against a contracting party?",
+      "question_short": "Highlight the parts (if any) of this contract related to \"Third Party Beneficiary\" that should be re...",
+      "expected_answers": [],
+      "expected_count": 0,
+      "is_impossible": true,
+      "agent_response_full": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "agent_response_short": "ANSWER: The requested information is not found in this document.\nSEARCH SUMMARY: Examined lines 1-282, no relevant information located.",
+      "timestamp": "2025-09-07T18:24:22.496430"
+    }
+  ],
+  "summary": {
+    "total_questions": 41,
+    "impossible_questions": 22,
+    "answerable_questions": 19,
+    "error_count": 0
+  }
+}

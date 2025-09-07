@@ -58,30 +58,64 @@ class SimpleTool(ABC):
 
 
 class ReadFileTool(SimpleTool):
-    """Tool to read file contents"""
+    """Tool to read file contents with sequential reading support"""
     
     def get_name(self) -> str:
         return "read_file"
     
     def get_description(self) -> str:
-        return """Read contents of a file.
+        return """Read contents of a file with optional sequential reading.
         Parameters:
         - file_path: Path to the file to read
+        - offset: Starting line number (1-based, optional)
+        - limit: Number of lines to read (optional)
         
         Usage:
         <tool_call>
         <name>read_file</name>
         <params>
           <file_path>path/to/file.txt</file_path>
+          <offset>1</offset>
+          <limit>50</limit>
         </params>
         </tool_call>"""
     
     def execute(self, **params) -> ToolResult:
         file_path = params.get('file_path')
+        offset = params.get('offset')
+        limit = params.get('limit')
+        
         if not file_path:
             return ToolResult(success=False, output="", error="file_path parameter required")
         
         try:
+            # If offset or limit specified, use ContractReader for sequential reading
+            if offset is not None or limit is not None:
+                from src.contract_reader import ContractReader
+                
+                # For absolute paths or paths outside contracts/, use current directory
+                if file_path.startswith('Sample/') or '/' in file_path or '\\' in file_path:
+                    reader = ContractReader(".")  # Use current directory
+                else:
+                    reader = ContractReader()  # Use default contracts directory
+                
+                offset = int(offset) if offset else 1
+                limit = int(limit) if limit else None
+                
+                content = reader.read(file_path, offset=offset, limit=limit)
+                
+                return ToolResult(
+                    success=True,
+                    output=content,
+                    metadata={
+                        "file_path": file_path,
+                        "offset": offset,
+                        "limit": limit,
+                        "content_length": len(content)
+                    }
+                )
+            
+            # Otherwise, read entire file as before
             path = Path(file_path)
             if not path.exists():
                 return ToolResult(success=False, output="", error=f"File not found: {file_path}")
@@ -245,9 +279,22 @@ class SimpleAgent:
         self.context = []
         self.max_iterations = 10
         self.parser = ToolCallParser()
+        self.custom_system_prompt = None  # Allow custom system prompt override
     
     def get_system_prompt(self) -> str:
         """Get system prompt with tool descriptions"""
+        # Use custom prompt if provided, otherwise use default
+        if self.custom_system_prompt:
+            tool_descriptions = "\n\n".join([tool.get_description() for tool in self.tools.values()])
+            return f"""{self.custom_system_prompt}
+
+## Available Tools:
+
+{tool_descriptions}
+
+When you need to use a tool, format your response with the tool call in XML format as shown in the tool descriptions."""
+        
+        # Default system prompt
         tool_descriptions = "\n\n".join([tool.get_description() for tool in self.tools.values()])
         
         return f"""You are an AI assistant that can use tools to complete tasks. You have access to the following tools:
