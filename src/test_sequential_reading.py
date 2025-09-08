@@ -115,9 +115,6 @@ Features:
             for i, line in enumerate(selected_lines, start=start_idx + 1):
                 # Remove trailing newline for formatting
                 line_content = line.rstrip('\n')
-                # Truncate long lines
-                if len(line_content) > 2000:
-                    line_content = line_content[:2000] + "..."
                 # Format with line number (similar to cat -n)
                 formatted_lines.append(f"{i:6d} | {line_content}")
             
@@ -242,8 +239,11 @@ After getting the document structure, analyze which sections are most likely to 
 - Section titles and organizational structure
 - Legal document patterns
 
-### STEP 3: TARGETED READING
-Read specific sections using precise line ranges instead of sequential chunks:
+### STEP 3: MULTI-PASS TARGETED READING
+**CRITICAL: Use multiple search passes to ensure comprehensive coverage**
+
+**Pass 1 - Primary Search:**
+Read sections most likely to contain the answer:
 <tool_call>
 <name>read_file</name>
 <params>
@@ -252,6 +252,19 @@ Read specific sections using precise line ranges instead of sequential chunks:
 <limit>[section_length]</limit>
 </params>
 </tool_call>
+
+**Pass 2 - Keyword Expansion:**
+After initial findings, generate related legal terms and search again:
+- Identify legal synonyms (warranty → warrants, guarantee, defect)
+- Find alternative phrasings (24 month → twenty-four months)
+- Look for cross-references (pursuant to Section X, as defined in)
+- Search for related concepts in different sections
+
+**Pass 3 - Cross-Reference Verification:**
+Check for additional provisions in related sections:
+- If found assignment clauses, also check termination sections
+- If found license grants, check both appointment AND rights sections  
+- If found warranty terms, check both warranty AND liability sections
 
 ## Core Rules:
 1. **ALWAYS segment first** - Never start reading without understanding document structure
@@ -329,11 +342,29 @@ Always check these related sections together:
 6. **Check defined terms** (capitalized terms) for additional context
 
 ## BEFORE FINALIZING YOUR ANSWER - MANDATORY CHECKLIST:
-1. Have I found ALL occurrences of this concept in the document?
-2. Did I check related sections and cross-references?
-3. For multi-part concepts, did I extract ALL components?
-4. Is my response properly formatted (not raw XML)?
-5. Have I provided complete citations for EVERY relevant provision?
+1. **Multi-Pass Verification**: Did I perform at least 2-3 search passes with different keywords?
+2. **Complete Coverage**: Have I found ALL occurrences of this concept in the document?
+3. **Cross-References**: Did I check related sections and follow "pursuant to Section X" references?
+4. **Keyword Variations**: Did I search for legal synonyms and alternative phrasings?
+5. **Multi-Part Extraction**: For complex concepts, did I extract ALL components?
+6. **Proper Formatting**: Is my response properly formatted (not raw XML)?
+7. **Complete Citations**: Have I provided complete citations for EVERY relevant provision?
+
+## MULTI-PASS SEARCH EXAMPLES:
+**For "Warranty Duration":**
+- Pass 1: Search "warranty" sections
+- Pass 2: Search "24 month", "twenty-four month", "warrants", "guarantee", "defect"
+- Pass 3: Check product liability, representation sections for additional warranty terms
+
+**For "Assignment":**
+- Pass 1: Search "assignment" sections  
+- Pass 2: Search "transfer", "convey", "delegate", "assign"
+- Pass 3: Check termination sections for bankruptcy assignment clauses
+
+**For "Minimum Commitment":**
+- Pass 1: Search "minimum", "purchase" sections
+- Pass 2: Search "units", "quarterly", "annual", "maintain exclusive", "$250,000"
+- Pass 3: Check establishment sections for performance requirements
 
 ## Response Formats:
 
@@ -452,7 +483,7 @@ def load_qa_data():
     print("Checking QA data and contract file...")
     
     # Check if QA file exists
-    qa_file = 'Sample/qa_pairs.json'
+    qa_file = 'data/Sample/qa_pairs.json'
     if os.path.exists(qa_file):
         print(f"[OK] QA file found: {qa_file}")
         try:
@@ -477,7 +508,7 @@ def load_qa_data():
         return False
     
     # Check if contract file exists
-    contract_file = 'Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
+    contract_file = 'data/Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
     if os.path.exists(contract_file):
         print(f"[OK] Contract file found: {contract_file}")
         file_size = os.path.getsize(contract_file)
@@ -518,7 +549,7 @@ def test_all_qa_questions():
     
     # Load QA data
     try:
-        with open('Sample/qa_pairs.json', 'r', encoding='utf-8', errors='ignore') as f:
+        with open('data/Sample/qa_pairs.json', 'r', encoding='utf-8', errors='ignore') as f:
             qa_data = json.load(f)
         print(f"Loaded {len(qa_data)} questions")
     except Exception as e:
@@ -530,7 +561,7 @@ def test_all_qa_questions():
     if not agent:
         return
     
-    contract_file = 'Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
+    contract_file = 'data/Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
     
     results = []
     
@@ -605,7 +636,7 @@ Follow the mandatory workflow: FIRST segment the document to understand its stru
             'timestamp': datetime.now().isoformat(),
             'total_questions': len(results),
             'model_used': 'moonshotai/kimi-k2-0905',  # Current model
-            'contract_file': 'Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
+            'contract_file': 'data/Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
         },
         'results': results,
         'summary': {
