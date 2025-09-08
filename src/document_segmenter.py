@@ -9,7 +9,7 @@ import instructor
 from openai import OpenAI
 from pydantic import BaseModel
 
-from .config import load_config
+from config import load_config
 
 
 class Section(BaseModel):

@@ -3,10 +3,13 @@ import os
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
 from datetime import datetime
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from simple_agent import SimpleAgent, SimpleTool, ToolResult
-from .llm_client import OpenRouterClient
-from .config import load_config
-from .document_segmenter import segment_document
+from llm_client import OpenRouterClient
+from config import load_config
+from document_segmenter import segment_document
 
 
 class ReadFileTool(SimpleTool):
@@ -222,6 +225,14 @@ TOC_GUIDED_READING_PROMPT = """You are a precise legal document extraction syste
 - Your response must ALWAYS be human-readable text with LEGAL ANALYSIS, ANSWER, and CITATIONS
 - All responses must be properly formatted, never malformed
 
+## CONSERVATION RULE FOR NOT FOUND QUESTIONS:
+**WHEN NO RELEVANT PROVISIONS EXIST:**
+- Simply state "ANSWER: No provisions found."
+- Do NOT provide detailed legal analysis for missing provisions
+- Do NOT elaborate on unrelated contract terms
+- Do NOT provide extensive search summaries
+- Be minimal and definitive when information truly doesn't exist
+
 ## MANDATORY WORKFLOW - FOLLOW EXACTLY:
 
 ### STEP 1: GET DOCUMENT STRUCTURE FIRST
@@ -350,6 +361,33 @@ Always check these related sections together:
 6. **Proper Formatting**: Is my response properly formatted (not raw XML)?
 7. **Complete Citations**: Have I provided complete citations for EVERY relevant provision?
 
+## FINAL VALIDATION - CRITICAL THINKING PROCESS:
+**BEFORE submitting your answer, perform this validation:**
+
+### STEP 1: EXACT QUESTION MATCH VALIDATION
+- **Question asks for**: [Restate what the question specifically asks for]
+- **I found**: [Summarize what provisions you actually found]
+- **Match Assessment**: Do the provisions I found EXACTLY match what the question asks for?
+
+### STEP 2: IMPOSSIBLE QUESTION CHECK  
+- **If I found NO exact matches**: State "ANSWER: No provisions found"
+- **If I found related but different provisions**: State "ANSWER: No provisions found" 
+- **If I found exact matches**: Proceed with detailed response
+
+### STEP 3: COMMON MISMATCH DETECTION
+**WARNING: Avoid these common mismatches:**
+- Q: "Change of Control" ≠ Assignment/Termination clauses
+- Q: "Volume Restriction" (max limits) ≠ Minimum purchase requirements  
+- Q: "Non-Transferable License" ≠ General assignment restrictions
+- Q: "Affiliate License" ≠ General license grants
+- Q: "Uncapped Liability" ≠ Liability-limiting provisions
+- Q: "Liquidated Damages" (penalty clauses) ≠ Damage limitation clauses
+
+### STEP 4: FINAL DECISION
+**Based on my validation:**
+- [ ] I found provisions that EXACTLY match the question → Provide detailed answer
+- [ ] I found NO provisions or only related provisions → "ANSWER: No provisions found"
+
 ## MULTI-PASS SEARCH EXAMPLES:
 **For "Warranty Duration":**
 - Pass 1: Search "warranty" sections
@@ -382,9 +420,14 @@ CITATIONS:
 3. "[Provision 3]" [Line: Z]
 
 **Information NOT Found:**
-LEGAL ANALYSIS: [Explanation of what you searched for and legal concepts considered]
-ANSWER: The requested information is not found in this document.
-SEARCH SUMMARY: Segmented document into [X] sections, examined sections [list], searched for [specific terms/concepts and functional equivalents], no relevant provisions located.
+ANSWER: No provisions found.
+
+**CRITICAL: For impossible questions, be CONSERVATIVE:**
+- If comprehensive search reveals NO relevant provisions, simply state "No provisions found"  
+- Do NOT provide detailed explanations about absence of information
+- Do NOT elaborate on related but irrelevant contract sections
+- Do NOT provide extensive search summaries
+- Keep response minimal and definitive
 
 ## Critical Instructions:
 - **MANDATORY**: Start every task with document segmentation
@@ -398,6 +441,7 @@ SEARCH SUMMARY: Segmented document into [X] sections, examined sections [list], 
 - **Recognize patterns** - legal concepts often appear in non-obvious terminology
 - **Cross-reference sections** - follow references to find complete information
 - **Never return malformed responses** - always provide human-readable answers
+- **MANDATORY FINAL VALIDATION**: Always perform the critical thinking validation process before submitting your answer
 
 ## DETAILED WORKFLOW EXAMPLES:
 
@@ -448,18 +492,21 @@ CITATIONS:
 3. "Company shall thereupon correct each such defect" [Line: 136]
 [Additional citations for all aspects]
 
-### Example 4: "Not Found" Question
+### Example 4: "Not Found" Question (CONSERVATIVE APPROACH)
 **Question**: "Are there any liquidated damages clauses?"
 **Correct Approach**:
 1. Segment document first
 2. Check termination, breach, and damages sections
 3. Search comprehensively
-4. Confirm not found with thorough search summary
+4. Give minimal response if not found
 
 **GOOD Response**:
+ANSWER: No provisions found.
+
+**BAD Response** (Too detailed for impossible questions):
 LEGAL ANALYSIS: Liquidated damages clauses specify predetermined damages amounts for breaches.
 ANSWER: The requested information is not found in this document.
-SEARCH SUMMARY: Segmented document into 8 sections, examined termination (Section 4), breach remedies, and damages provisions, searched for "liquidated damages," "predetermined damages," "penalty," and related terms, no relevant provisions located.
+SEARCH SUMMARY: Segmented document into 8 sections, examined termination (Section 4)...
 
 ## CRITICAL SUCCESS PATTERNS:
 ✅ Always segment first

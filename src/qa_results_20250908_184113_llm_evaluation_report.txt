@@ -1,0 +1,55 @@
+================================================================================
+LLM-BASED QA EVALUATION REPORT
+================================================================================
+Generated: 2025-09-08 19:43:31
+Evaluation Model: openai/gpt-4o-mini
+
+OVERALL PERFORMANCE:
+  Total Questions: 41
+  Correct: 34
+  Partial: 0
+  Incorrect: 7
+  Accuracy (with partial): 82.9%
+  Strict Accuracy: 82.9%
+
+CONFIDENCE DISTRIBUTION:
+  High Confidence: 41
+  Medium Confidence: 0
+  Low Confidence: 0
+
+INCORRECT ANSWERS:
+--------------------------------------------------
+Q10: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Compete
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly identifies specific non-compete provisions in the contract when the question is marked as "impossible" to answer from the document. The core of the answer states that there are several provisions related to non-compete restrictions, which contradicts the premise that such information cannot be determined from the available text. The agent's detailed analysis and citations further substantiate claims of existing provisions, which is not acceptable for an impossible question. Therefore, the evaluation is marked as INCORRECT.
+
+Q24: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Ip Ownership Assignment
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly identifies specific provisions related to "IP Ownership Assignment" when the question is marked as "impossible" to answer from the document. The core answer states that certain provisions exist, which contradicts the premise of the question. Since the question explicitly asks for information that cannot be determined from the available text, the agent should have stated that no relevant provisions were found. The presence of detailed legal analysis and citations does not change the fact that the core answer fails to acknowledge the absence of the requested information, leading to an incorrect evaluation.
+
+Q27: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Transferable License
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly identifies specific provisions related to "Non-Transferable License" when the question is marked as "impossible" to answer from the document. The core of the response in the "ANSWER:" section claims that there are provisions that limit the ability of a party to transfer the license, which contradicts the premise of the question. Since the question is deemed impossible to answer, the agent should have stated that no relevant provisions were found or that the information could not be determined from the available text. The presence of specific provisions and citations indicates a failure to adhere to the criteria for impossible questions.
+
+Q28: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Affiliate License-Licensor
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly asserts that the contract contains provisions related to "Affiliate License-Licensor" when the question is marked as "impossible" to answer from the document. The expected behavior for an impossible question is to explicitly state that the requested information is absent or cannot be determined from the available text. Instead, the agent provides specific citations and claims that there are relevant provisions, which contradicts the premise of the question being impossible to answer. Therefore, the response fails to meet the criteria for an impossible question.
+
+Q29: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Affiliate License-Licensee
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response in the ANSWER section incorrectly states that the contract does not contain a license grant to a licensee and affiliates, while simultaneously providing detailed citations of provisions that imply restrictions rather than an outright absence of relevant license grants. The question is marked as "impossible" to answer from the document, and the agent should have acknowledged the absence of information without providing specific provisions that contradict the claim of impossibility. The presence of detailed legal analysis and citations does not change the fact that the core answer contradicts the premise of the question being impossible to answer. Therefore, the evaluation is marked as INCORRECT.
+
+Q35: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Uncapped Liability
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly identifies specific provisions related to "Uncapped Liability" when the question is marked as "impossible" to answer from the document. The core answer states that there are provisions that create uncapped liability exposure, which contradicts the premise of the question. Since the question is deemed impossible to answer, the agent should have stated that no relevant provisions were found, rather than providing detailed analysis and citations of specific clauses. This misalignment with the expected behavior results in an incorrect evaluation.
+
+Q37: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Liquidated Damages
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response in the ANSWER section incorrectly states that the contract contains a reference to liquidated damages, specifically mentioning a limitation on liability for liquidated damages related to late delivery. This contradicts the nature of the question, which is marked as "impossible" to answer. The question seeks to determine if there are clauses that award liquidated damages for breach or termination fees, and the agent's response implies the existence of such provisions, which is not permissible for an impossible question. Therefore, the evaluation is marked as INCORRECT.

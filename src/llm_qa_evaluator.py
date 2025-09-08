@@ -130,12 +130,26 @@ EXPECTED BEHAVIOR: The agent should recognize this question cannot be answered f
 AGENT RESPONSE: {agent_response}
 
 EVALUATION CRITERIA FOR IMPOSSIBLE QUESTIONS:
-- CORRECT: Agent recognizes the information is not available/found, whether explicitly ("not found") or through analysis ("no provisions found")
-- CORRECT: Agent avoids fabricating specific details that aren't in the document
-- INCORRECT: Agent provides specific details, provisions, or quotes that appear to be made up
-- INCORRECT: Agent claims definitive information exists when it should not be determinable
+- FOCUS PRIMARILY ON THE "ANSWER:" SECTION - This is the core response
+- CORRECT: If ANSWER section states "No [X] found", "No provisions found", "Not found", etc.
+- CORRECT: Agent correctly identifies absence of requested information in main answer
+- CORRECT: Additional legal analysis, citations, or context are ACCEPTABLE if the core answer is right
+- INCORRECT: Only if the ANSWER section claims specific provisions exist when they shouldn't
+- INCORRECT: Only if agent fabricates fake provisions or quotes in the ANSWER section
 
-IMPORTANT: If the agent says "No [X] found" or "Document does not contain [X]" after searching, this is CORRECT behavior for impossible questions.
+EXAMPLE OF CORRECT RESPONSE FOR IMPOSSIBLE QUESTION:
+```
+LEGAL ANALYSIS: [detailed analysis about contract provisions...]
+ANSWER: No termination for convenience provisions found.
+CITATIONS: [various quotes and line numbers...]
+```
+↑ This should be marked CORRECT because the ANSWER section correctly identifies "No provisions found"
+
+EXAMPLE OF INCORRECT RESPONSE FOR IMPOSSIBLE QUESTION:
+```
+ANSWER: The contract contains termination for convenience in Section 4.2 which states...
+```
+↑ This should be marked INCORRECT because the ANSWER section claims provisions exist
 
 Respond in this exact format:
 EVALUATION: [CORRECT/INCORRECT]

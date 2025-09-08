@@ -6,7 +6,7 @@ from openai import OpenAI, AsyncOpenAI
 from openai.types.chat import ChatCompletion, ChatCompletionChunk
 from openai.types import Model
 
-from .config import OpenRouterConfig, load_config
+from config import OpenRouterConfig, load_config
 
 
 class OpenRouterClient:
