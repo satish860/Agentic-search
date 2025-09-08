@@ -122,7 +122,7 @@ Document:
 
 if __name__ == "__main__":
     # Test segmentation
-    contract_file = 'Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
+    contract_file = 'data/Sample/LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT.txt'
     
     if os.path.exists(contract_file):
         structured_doc = segment_document(contract_file)

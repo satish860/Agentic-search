@@ -94,7 +94,7 @@ class ReadFileTool(SimpleTool):
                 from src.contract_reader import ContractReader
                 
                 # For absolute paths or paths outside contracts/, use current directory
-                if file_path.startswith('Sample/') or '/' in file_path or '\\' in file_path:
+                if file_path.startswith('data/Sample/') or '/' in file_path or '\\' in file_path:
                     reader = ContractReader(".")  # Use current directory
                 else:
                     reader = ContractReader()  # Use default contracts directory

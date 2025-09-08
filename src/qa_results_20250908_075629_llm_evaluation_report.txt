@@ -1,0 +1,85 @@
+================================================================================
+LLM-BASED QA EVALUATION REPORT
+================================================================================
+Generated: 2025-09-08 09:15:55
+Evaluation Model: openai/gpt-4o-mini
+
+OVERALL PERFORMANCE:
+  Total Questions: 41
+  Correct: 28
+  Partial: 0
+  Incorrect: 13
+  Accuracy (with partial): 68.3%
+  Strict Accuracy: 68.3%
+
+CONFIDENCE DISTRIBUTION:
+  High Confidence: 41
+  Medium Confidence: 0
+  Low Confidence: 0
+
+INCORRECT ANSWERS:
+--------------------------------------------------
+Q7: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Notice Period To Terminate Renewal
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response indicates that the notice period required to terminate renewal is not specified in the contract, which aligns with the expected behavior for an impossible question. However, the agent provides additional details about the contract's provisions regarding the initial term and termination "for cause," which, while informative, goes beyond the scope of the question. The question specifically asks for information related to the notice period for terminating renewal, and the agent should have simply stated that this information is not found in the document without elaborating on other provisions. This additional information could mislead users into thinking there are relevant details when the question is fundamentally impossible to answer based on the document. Therefore, the response does not fully adhere to the criteria for impossible questions.
+
+Q16: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Termination For Convenience
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and citations from the contract regarding termination provisions. Since the question is marked as "impossible" to answer from the document, the agent should not have included any specific provisions or analysis. Instead, the agent should have simply stated that the information regarding "Termination For Convenience" is not found in the document. By providing detailed analysis and citations, the agent implies that there is a definitive answer available, which contradicts the classification of the question as impossible.
+
+Q18: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Change Of Control
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and citations from the contract regarding assignment and termination for insolvency, which are not relevant to the question about "Change of Control." The question is marked as "impossible" to answer from the document, and the agent should have explicitly stated that the information regarding Change of Control provisions is not found or specified in the document. By providing specific provisions and analysis that do not pertain to the requested information, the agent fails to adhere to the expected behavior for impossible questions.
+
+Q20: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Revenue/Profit Sharing
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and provisions from the contract, despite the question being marked as "impossible" to answer. The agent should have acknowledged that the requested information regarding "Revenue/Profit Sharing" is not available in the document. Instead, the agent elaborated on the financial terms of the distributor agreement, which is inappropriate for an impossible question. The response should have simply stated that no provisions regarding revenue or profit sharing were found, without including specific details or citations from the contract. This failure to adhere to the expected behavior for impossible questions leads to the evaluation of "INCORRECT."
+
+Q23: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Volume Restriction
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and provisions regarding minimum purchase requirements and financial commitments, which are not relevant to the question about "Volume Restriction." The question explicitly asks about fee increases or consent requirements related to exceeding certain thresholds, which the agent should have recognized as not present in the document. Instead of acknowledging the absence of relevant information, the agent elaborated on unrelated contract terms, thus failing to meet the expected behavior for an impossible question.
+
+Q24: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Ip Ownership Assignment
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response fails to adhere to the expected behavior for an "impossible" question. While the agent provides a detailed analysis of the contract and lists several provisions related to intellectual property, it ultimately does not recognize that the question cannot be answered based on the document. The agent should have explicitly stated that the document does not contain provisions related to "IP Ownership Assignment" as requested, rather than providing specific details and citations. This indicates a misunderstanding of the question's nature and leads to an incorrect conclusion about the presence of relevant information in the contract.
+
+Q27: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Transferable License
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and provisions from the contract regarding the "Non-Transferable License," despite the question being marked as "impossible" to answer from the document. The expected behavior was to acknowledge the absence of relevant information, such as stating "not found" or "cannot determine from available text." Instead, the agent fabricated specific sections and quotes, which is not acceptable for an impossible question. This demonstrates a failure to adhere to the evaluation criteria, as the agent claimed definitive information exists when it should not be determinable.
+
+Q28: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Affiliate License-Licensor
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details about the contract, including a citation from Section 1.2 regarding a trademark license. Since the question is marked as "impossible" to answer from the document, the agent should not have included any specific provisions or quotes. Instead, the agent should have simply stated that the requested information regarding "Affiliate License-Licensor" is not found in the document. By providing specific details, the agent has fabricated information that is not applicable to the question's context, which violates the evaluation criteria for impossible questions.
+
+Q29: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Affiliate License-Licensee
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response provides specific details and citations from the contract regarding the license grant to the Distributor and the prohibition on sublicensing. However, the question is marked as "impossible" to answer from the document, indicating that the agent should not have provided any specific information or analysis. Instead, the agent should have acknowledged that the requested information regarding the "Affiliate License-Licensee" is not available in the document. By providing specific details and quotes, the agent has contradicted the classification of the question as impossible, leading to an incorrect evaluation.
+
+Q30: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Unlimited/All-You-Can-Eat-License
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and citations from the contract, which is not appropriate for an "impossible" question. The question explicitly asks for information regarding an "Unlimited/All-You-Can-Eat-License," which the agent should have recognized as not present in the document. Instead of stating that no such provisions exist, the agent elaborates on the contract's content, which is not permissible in this context. The agent should have simply stated that the requested information is not found or cannot be determined from the available text. This failure to adhere to the expected behavior for impossible questions leads to the evaluation of "INCORRECT."
+
+Q31: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Irrevocable Or Perpetual License
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and citations from the contract regarding the license provisions. Since the question is marked as "impossible" to answer from the document, the agent should have acknowledged the absence of relevant information rather than detailing the contents of the contract. By stating that the contract does not contain an irrevocable or perpetual license grant and providing specific citations, the agent contradicts the expected behavior for impossible questions, which is to recognize that the information is not available. Therefore, the response fails to meet the criteria for handling impossible questions appropriately.
+
+Q35: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Uncapped Liability
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details and provisions from the contract regarding liability, despite the question being marked as "impossible" to answer from the document. The question explicitly asks about "Uncapped Liability" and whether a party's liability is uncapped upon breach, which the agent should have recognized as not determinable from the available text. Instead of acknowledging the absence of relevant provisions, the agent lists several liability-limiting mechanisms and quotes specific lines from the contract, which is inappropriate for an impossible question. This indicates a failure to adhere to the expected behavior for such queries.
+
+Q37: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Liquidated Damages
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly provides specific details about the absence of liquidated damages clauses and includes a citation from the document. Since the question is marked as "impossible" to answer from the document, the agent should have stated that the information is not available or not found, rather than providing a detailed analysis and a specific quote. This violates the expected behavior for impossible questions, which requires the agent to acknowledge the absence of the requested information without fabricating details or providing specific provisions.
