@@ -1,0 +1,55 @@
+================================================================================
+LLM-BASED QA EVALUATION REPORT
+================================================================================
+Generated: 2025-09-09 08:27:50
+Evaluation Model: openai/gpt-4o-mini
+
+OVERALL PERFORMANCE:
+  Total Questions: 41
+  Correct: 34
+  Partial: 0
+  Incorrect: 7
+  Accuracy (with partial): 82.9%
+  Strict Accuracy: 82.9%
+
+CONFIDENCE DISTRIBUTION:
+  High Confidence: 41
+  Medium Confidence: 0
+  Low Confidence: 0
+
+INCORRECT ANSWERS:
+--------------------------------------------------
+Q2: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Parties
+  Expected: ['Distributor', 'Electric City Corp.', 'Electric City of Illinois L.L.C.', 'Company', 'Electric City of Illinois LLC']
+  Confidence: HIGH
+  Reasoning: The agent response does not contain any of the expected answers related to the "Parties" section of the contract. Instead, it returns an error message indicating a failure in processing the request. Since none of the expected parties (Distributor, Electric City Corp., Electric City of Illinois L.L.C., Company, Electric City of Illinois LLC) are mentioned or addressed in the response, it is clear that the expected information is missing. Therefore, the evaluation is marked as INCORRECT.
+
+Q10: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Compete
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response in the ANSWER section claims that specific non-compete provisions exist within the contract, which contradicts the classification of the question as "impossible" to answer from the document. The question explicitly asks for information regarding non-compete restrictions, and the agent's detailed summary of provisions indicates that they have identified specific clauses related to non-compete, which should not have been possible according to the question's designation. Therefore, the response fails to acknowledge the absence of the requested information, making it incorrect.
+
+Q13: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Competitive Restriction Exception
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response in the ANSWER section claims the existence of specific competitive restriction exceptions that should be reviewed by a lawyer, which contradicts the classification of the question as "impossible" to answer from the document. The question explicitly asks for information regarding "Competitive Restriction Exception," and the agent provides detailed provisions and citations that imply these exceptions exist in the contract. Since the question is marked as impossible, the agent should have stated that no such provisions were found or that the information could not be determined from the available text. Therefore, the response is incorrect as it fails to acknowledge the absence of the requested information.
+
+Q23: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Volume Restriction
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response includes a detailed legal analysis that discusses minimum purchase requirements and the absence of provisions related to exceeding thresholds. However, the core answer in the ANSWER section states "No provisions found," which is misleading because the agent has already provided specific information about minimum purchase requirements. This creates a contradiction, as the agent implies that there are relevant provisions regarding minimums while simultaneously stating that no provisions exist. Therefore, the response fails to meet the criteria for an impossible question, as it does not clearly acknowledge the absence of information regarding "Volume Restriction" without introducing conflicting details.
+
+Q27: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Non-Transferable License
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response in the ANSWER section incorrectly claims that the contract contains specific provisions related to the "Non-Transferable License." Since the question is marked as "impossible" to answer from the document, the agent should have stated that no relevant provisions were found. Instead, the agent provided detailed citations and analysis that imply the existence of provisions, which contradicts the classification of the question as impossible. Therefore, the response fails to meet the expected behavior for such a question.
+
+Q37: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Liquidated Damages
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response in the ANSWER section incorrectly states that there is a reference to liquidated damages, specifically mentioning a "limitation provision" rather than clearly stating that no liquidated damages clauses exist. The question is marked as "impossible" to answer from the document, which means the agent should not assert the existence of any provisions related to liquidated damages. The presence of any reference, even if it is not a clause awarding damages, contradicts the requirement to acknowledge the absence of the requested information. Therefore, the evaluation is marked as INCORRECT.
+
+Q41: LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT__Third Party Beneficiary
+  Expected: []
+  Confidence: HIGH
+  Reasoning: The agent's response incorrectly identifies specific provisions related to "Third Party Beneficiary" rights in the contract, despite the question being marked as "impossible" to answer from the document. The core answer should have stated that no provisions were found regarding third-party beneficiaries, as the question explicitly asks for information that cannot be determined from the available text. Instead, the agent fabricated specific provisions and citations, which directly contradicts the requirement for an impossible question response. Thus, the evaluation is marked as incorrect.
