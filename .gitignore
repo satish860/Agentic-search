@@ -31,3 +31,6 @@ htmlcov/
 
 # Logs
 *.log
+
+# Finance PDF cache
+.finance/
