@@ -35,65 +35,87 @@ def doc_with_lines(document: str) -> tuple[str, dict]:
     return document_with_line_numbers, line2text
 
 
-def segment_document(file_path: str, use_cache: bool = True) -> StructuredDocument:
+def segment_document(file_path: str, use_cache: bool = True, document_type: str = "legal") -> StructuredDocument:
     """Segment document into structured sections using Instructor + GPT-5-nano"""
-    
-    # Simple caching based on file hash
-    cache_file = f".{Path(file_path).name}.segments.json"
-    
+
+    # Simple caching based on file hash and document type
+    cache_file = f".{Path(file_path).name}.{document_type}.segments.json"
+
     if use_cache and os.path.exists(cache_file):
         try:
             # Check if file changed
             with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
             current_hash = hashlib.md5(content.encode()).hexdigest()
-            
+
             with open(cache_file, 'r') as f:
                 cache_data = json.load(f)
-            
+
             if cache_data.get('file_hash') == current_hash:
-                print(f"[INFO] Using cached segmentation for {file_path}")
+                print(f"[INFO] Using cached {document_type} segmentation for {file_path}")
                 sections = [Section.model_validate(s) for s in cache_data['sections']]
                 return StructuredDocument(sections=sections)
-                
+
         except Exception:
             pass  # Cache invalid, regenerate
-    
+
     # Read and prepare document
-    print(f"[INFO] Segmenting document with GPT-5-nano: {file_path}")
-    
+    print(f"[INFO] Segmenting {document_type} document with GPT-5-nano: {file_path}")
+
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         document = f.read()
-    
+
     document_with_lines, line2text = doc_with_lines(document)
-    
+
     # Set up Instructor with OpenRouter
     config = load_config()
-    
+
     # Create OpenAI client pointed to OpenRouter
     client = OpenAI(
         api_key=config.api_key,
         base_url=config.base_url
     )
-    
+
     # Patch with instructor
     instructor_client = instructor.from_openai(client)
-    
+
+    # Choose prompts based on document type
+    if document_type == "financial":
+        system_prompt = "You are a financial document expert specializing in SEC filings (10-K, 10-Q forms). Identify main sections in financial documents."
+        user_prompt = f"""Identify the main sections in this SEC financial filing (10-K form). Focus on major sections such as:
+
+- Business Overview/Description
+- Risk Factors
+- Legal Proceedings
+- Management's Discussion and Analysis (MD&A)
+- Financial Statements (Consolidated Income Statement, Balance Sheet, Cash Flows, etc.)
+- Notes to Financial Statements
+- Controls and Procedures
+- Exhibits
+
+Look for standard SEC filing structure and numbered items (Item 1, Item 2, etc.).
+
+Document:
+{document_with_lines}"""
+    else:  # Default to legal
+        system_prompt = "You are a legal document expert. Identify main sections in contracts."
+        user_prompt = f"""Identify the main sections in this legal contract. Focus only on major divisions like RECITALS and numbered sections (1., 2., 3., etc.).
+
+Document:
+{document_with_lines}"""
+
     try:
         # Use instructor to get structured output
         structured_doc = instructor_client.chat.completions.create(
-            model="openai/gpt-5-nano",  # Using gpt-5-nano 
+            model="openai/gpt-5-nano",  # Using gpt-5-nano
             messages=[
                 {
-                    "role": "system", 
-                    "content": "You are a legal document expert. Identify main sections in contracts."
+                    "role": "system",
+                    "content": system_prompt
                 },
                 {
-                    "role": "user", 
-                    "content": f"""Identify the main sections in this legal contract. Focus only on major divisions like RECITALS and numbered sections (1., 2., 3., etc.).
-
-Document:
-{document_with_lines}"""  # Use full document
+                    "role": "user",
+                    "content": user_prompt
                 }
             ],
             response_model=StructuredDocument,
